@@ -1,0 +1,12 @@
+/* importing sinhala fonts */
+@import url(//fonts.googleapis.com/earlyaccess/notosanssinhala.css);
+
+/*Custom Bootstrap Additions*/
+
+/* change the background color nav bar */
+.bg-company-red {
+  background-color: rgba(143, 143, 143, 0.123) !important;
+}
+
+/* Home Page */
+/* Image Grid */

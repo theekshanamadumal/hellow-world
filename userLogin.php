@@ -1,5 +1,5 @@
 <html>
-<head><title> login page</title></head>
+<head><title> Login page</title></head>
 <body>
 
 <?php
@@ -20,21 +20,21 @@ if   (isset($_POST['submit'])){
     
 
 ?>
-<form action = 'userLogin.php' method="POST">
-    <pre ><br><br><br><h3><center>
-user name:  <input name="user_name" type="text" id="">
+<?php include_once("inc/Header.php"); ?>
+<div class="container pl-5">
+    <form action = 'userLogin.php' method="POST">
+    
+        Username:  <input name="user_name" type="text" id="">
 
-password :  <input name="password" type="password" id="">
+        Password :  <input name="password" type="password" id="">
 
-    <input name="submit" type="submit" id="" value="log in"></form>	<br>
-   
-   
-    <hr>
+        <input name="submit" type="submit" id="" value="log in">
+    </form>	
+    <br>    
     <a href="ChangePassword.php">CAN'T REMEMBER PASSWORD</a><br>
     <a href="NewAccount.php">CREATE NEW ACCOUNT</a><br>
-    <a href="./">main</a>
-    </center></h3><hr>
-    </pre>
-        	
+        
+</div>
+<?php include_once('inc/Footer.php'); ?>      	
 </body>
 </html>
