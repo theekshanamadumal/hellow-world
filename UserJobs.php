@@ -7,6 +7,7 @@
 
   </head>
   <body>
+  <?php include_once("inc/Header.php"); ?>
     <?php 
     require_once 'controller/ui.ctrl.php';
     $loginId='971650834v';//$_SESSION['loginID'];
@@ -35,7 +36,7 @@
     else   echo "No Jobs Submitted Yet";
     
     ?>
+    <?php include_once('inc/Footer.php'); ?>
   </body>
 
 </html>
-<a href="index.php">home</a>

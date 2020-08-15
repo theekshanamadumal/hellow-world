@@ -39,18 +39,18 @@
      </ul>
      <ul class="nav navbar-nav navbar-right" id="myNavbar">
           
-          <?php if(!isset($_SESSION['loginID'])) {?>
+          <?php// if(!isset($_SESSION['loginID'])) {?>
             <li>
-              <a href="NewAccount.php"><span></span> Register</a>
+              <a href="newAccount.php"><span></span> Register</a>
             </li>
             <li>
-              <a href="Login.php"><span></span> Login</a>
+              <a href="userLogin.php"><span></span> Login</a>
             </li>
             
-          <?php } else {?>
+          <?php /*} else {?>
             <li><a href=<?php  echo $_SESSION['uI'] ?>><?php echo $_SESSION['loginID'];?></a></li>
             <li><a href="logout.php">Logout</a></li>
-          <?php }?>
+          <?php }*/?>
       </ul>
     
   </div>
