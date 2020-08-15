@@ -16,25 +16,40 @@ if   (isset($_POST['submit'])){
     $loginctrll=new loginCtrl();
     $massege=$loginctrll->log($table,$PswrdColumn,$username,$givenPassword,$destination);
     echo$massege;
+    
 }
     
 
 ?>
+
 <?php include_once("inc/Header.php"); ?>
-<div class="container pl-5">
-    <form action = 'userLogin.php' method="POST">
-    
-        Username:  <input name="user_name" type="text" id="">
+<div class="row">
 
-        Password :  <input name="password" type="password" id="">
+    <div class = "col"></div>
+    <div class="col-md-auto ">    
+    <div class="formcontainer  ">
+        <form action = 'userLogin.php' method="POST">
+        <div class="container">
+            <label for="uname"><b>Username</b> </label>
+            <input name="user_name" type="text" placeholder="Enter Username">
 
-        <input name="submit" type="submit" id="" value="log in">
-    </form>	
-    <br>    
-    <a href="ChangePassword.php">CAN'T REMEMBER PASSWORD</a><br>
-    <a href="NewAccount.php">CREATE NEW ACCOUNT</a><br>
-        
+            <label for="psw"><b>Password</b> </label>
+            <input name="password" type="password" placeholder="Enter Password">
+
+            <input name="submit"  class="loginbtn" type="submit" value="Login">
+            <br>
+            <br>    
+            <div class="d-flex justify-content-between">
+            <a href="ChangePassword.php">Forgot Password?</a>
+            <a href="NewAccount.php">Create New Account</a></div>
+            </div>
+        </form>	
+    </div>
+    </div>
+    <div class = "col"></div>
 </div>
-<?php include_once('inc/Footer.php'); ?>      	
+
+<?php include_once('inc/Footer.php'); ?> 
+ 	
 </body>
 </html>
