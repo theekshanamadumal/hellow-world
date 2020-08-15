@@ -34,7 +34,7 @@ class loginCtrl{
             $_SESSION['loginID'] = $user_id;
             $_SESSION['uI']=$destination;
             header("location:{$destination}");
-            die;
+            //die;
     }   
 }             
 ?>

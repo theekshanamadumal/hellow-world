@@ -17,6 +17,18 @@ class connection{
         return $connection;
     }
 
+    public function runQuery($query){
+        $connection= $this->connect();
+        return mysqli_query($connection,$query);
+    }
+
+    public function fetchAssoc($result){
+    
+        $details=mysqli_fetch_assoc($result);
+        return $details;
+
+    }
+
 }
 
 ?>

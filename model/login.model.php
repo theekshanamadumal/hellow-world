@@ -12,19 +12,10 @@ class login extends connection {
         $this->username=$username;
 
         $query= "SELECT * FROM $this->table WHERE ID='{$this->username}'";
-        $connection=$this->connect();
-        $result= mysqli_query($connection,$query);
-        
+        $result=$this->runQuery($query);
+                
         return $result;
     }
-
-    public function fetchAssoc($result){
-    
-        $details=mysqli_fetch_assoc($result);
-        return $details;
-
-    }
-
 }
 
 ?>
