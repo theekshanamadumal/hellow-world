@@ -9,30 +9,22 @@
 
 <body>
 <?php include_once("inc/Header.php"); ?>
-<div class="container-fluid">
-        <div>
-            <h1>කලාප අධ්‍යාපන කාර්යාලය නිකවැරටිය</h1>
-            <p>නිකවැරටිය අධ්‍යාපන කලාප කාර්යාලයට සාදරයෙන් පිළිගනිමු. මෙම වෙබ් පිටුව මගින් කලාපයේ සියලුම පාසල්වල විදුහල්පතිවරුන්ට, ගුරුවරුන්ට සහ කාර්ය මණ්ඩලයේ සියලුම සාමාජිකයන්ට පහත සදහන් ඕනෑම සේවාවක් ලබා ගත හැක. </p>
+<div class="container">
+  <div class="row">
+        <div class="col-sm-8">  
+            <div class="flex-container">
+                <div><a href="#">Services</a></div>
+                <div><a href="#">Application Forms</a></div>
+                <div><a href="#">Transcript Forms</a></div>
+            </div>       
         </div>
-</div>
-<div class="image-links">
-    <ul class="image-grid">
-        <li>
-            <div class="box img1">
-                <a href="#"><div class="info">Services</div></a>
+        <div class="col-sm-4">
+            <div>
+                    <h1>කලාප අධ්‍යාපන කාර්යාලය නිකවැරටිය</h1>
+                    <p>නිකවැරටිය අධ්‍යාපන කලාප කාර්යාලයට සාදරයෙන් පිළිගනිමු. මෙම වෙබ් පිටුව මගින් කලාපයේ සියලුම පාසල්වල විදුහල්පතිවරුන්ට, ගුරුවරුන්ට සහ කාර්ය මණ්ඩලයේ සියලුම සාමාජිකයන්ට පහත සදහන් ඕනෑම සේවාවක් ලබා ගත හැක. </p>
             </div>
-        </li>
-        <li>
-            <div class="box img2">
-                <a href="#"><div class="info">Services</div></a>
-            </div>
-        </li>
-        <li>
-            <div class="box img3">
-                <a href="#"><div class="info">Services</div></a>
-            </div>
-        </li>
-    </ul>
+        </div>
+  </div>
 
 </div>
 <?php include_once('inc/Footer.php'); ?>
