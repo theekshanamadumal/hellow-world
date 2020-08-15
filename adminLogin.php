@@ -1,5 +1,5 @@
 <html>
-<head><title> login page</title></head>
+<head><title> Login page</title></head>
 <body>
 
 <?php
@@ -9,7 +9,7 @@ if   (isset($_POST['submit'])){
     
     $table='adminpwrds';
     $PswrdColumn='password1';
-    $destination="adminUi.php";
+    $destination="adminUI.php";
     
 
     require_once 'controller/userLogin.ctrl.php';
@@ -20,21 +20,35 @@ if   (isset($_POST['submit'])){
     
 
 ?>
-<form action = 'adminLogin.php' method="POST">
-    <pre ><br><br><br><h3><center>
-admin name:  <input name="user_name" type="text" id="">
 
-password :  <input name="password" type="password" id="">
+<?php include_once("inc/Header.php"); ?>
+<div class="row">
 
-    <input name="submit" type="submit" id="" value="log in"></form>	<br>
-   
-   
-    <hr>
-    <a href="ChangePassword.php">CAN'T REMEMBER PASSWORD</a><br>
-    <a href="NewAccount.php">CREATE NEW ACCOUNT</a><br>
-    <a href="./">main</a>
-    </center></h3><hr>
-    </pre>
-        	
+    <div class = "col"></div>
+    <div class="col-md-auto ">    
+    <div class="formcontainer  ">
+        <form action = 'adminLogin.php' method="POST">
+        <div class="container">
+            <label for="uname"><b>Admin ID</b> </label>
+            <input name="user_name" type="text" placeholder="Enter Username">
+
+            <label for="psw"><b>Password</b> </label>
+            <input name="password" type="password" placeholder="Enter Password">
+
+            <input name="submit"  class="loginbtn" type="submit" value="Login">
+            <br>
+            <br>    
+            <div class="d-flex justify-content-between">
+            <a href="ChangePassword.php">Forgot Password?</a>
+            <a href="NewAccount.php">Create New Account</a></div>
+            </div>
+        </form>	
+    </div>
+    </div>
+    <div class = "col"></div>
+</div>
+
+<?php include_once('inc/Footer.php'); ?> 
+   	
 </body>
 </html>

@@ -37,6 +37,21 @@
       </li>
       
      </ul>
+     <ul class="nav navbar-nav navbar-right" id="myNavbar">
+          
+          <?php if(!isset($_SESSION['loginID'])) {?>
+            <li>
+              <a href="NewAccount.php"><span></span> Register</a>
+            </li>
+            <li>
+              <a href="Login.php"><span></span> Login</a>
+            </li>
+            
+          <?php } else {?>
+            <li><a href=<?php  echo $_SESSION['uI'] ?>><?php echo $_SESSION['loginID'];?></a></li>
+            <li><a href="logout.php">Logout</a></li>
+          <?php }?>
+      </ul>
     
   </div>
 </nav>
