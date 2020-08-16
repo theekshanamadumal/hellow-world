@@ -45,6 +45,8 @@
         $school=$_POST['school'];
         $occupation=$_POST['occupation'];
 
+        require_once 'controller/newAcc.ctrl.php';
+        $PswrdColumn='passwords';
     }
    
 ?></div>
