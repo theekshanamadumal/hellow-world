@@ -1,0 +1,10 @@
+form {
+  border: white;
+}
+.input-group-text {
+  padding-top: 0;
+}
+.form-container {
+  padding-left: 20px;
+  padding-right: 20px;
+}
