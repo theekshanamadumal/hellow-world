@@ -11,7 +11,7 @@ class changePasswordModel extends connection
 
     public function fetchData($result)
     {
-        $details=$changePasswordModel->fetchAssoc($result);
+        $details=$this->fetchAssoc($result);
         $emailo=$details['Email'];
         $ido =$details['ID'];
 

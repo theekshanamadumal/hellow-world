@@ -10,17 +10,21 @@ class changePassword{
             $changePswrdModel=new changePasswordModel();
 
             $result=$this->getData($id,$changePswrdModel);
-
+            $message="UNDER CONSTRUCTION";
+            /*
             if($result){
                 $details=$changePswrdModel->fetchData($result);
                 
-                $emailo=$details['Email'];
-                $ido =$details['ID'];
+                if ($details['Email'] && $details['ID']) {
+                    $emailo=$details['Email'];
+                    $ido =$details['ID'];
+                }
+                
 
                 
             }else{
                 $message = "<hr>ACTION FAILED!";
-            }
+            }*/
         }else{
             $message = " user name and email can not be empty";
         }
