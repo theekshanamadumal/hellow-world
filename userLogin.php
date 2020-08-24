@@ -9,7 +9,7 @@ if   (isset($_POST['submit'])){
 
     $table='passwords';
     $PswrdColumn='password';
-    $destination="UserJobs.php";
+    $destination="userUi.php";
     
 
     require_once 'controller/userLogin.ctrl.php';
