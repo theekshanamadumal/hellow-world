@@ -1,25 +1,24 @@
 <?php
 class newAccCtrl{
-    public function checkDetails($ID,$pswrd1,$pswrd2)
+    public function createAccount($ID,$pswrd1,$pswrd2,$first_name,$second_name,$address,$telephone,$email,$school,$occupation)
     {
         if($ID!=null){
                 
             if ($pswrd1==$pswrd2 and $pswrd1!=null ) {
                 
                 include_once 'model/newAcc.model.php';
-                
-                $id_result= mysqli_query($connection,$query_id);
-                
-                
-                if ($id_result){
-                    $id_details=mysqli_num_rows($id_result);
+                $cn = new newAaccModel();
+                $idResult=$cn->runIdQuery($ID);
+                               
+                if ($idResult){
+                    $idDetails=$cn->numRows($idResult);
                     
-                    if ($id_details==null){
+                    if ($idDetails==null){
 
                        
 
-                        $result= mysqli_query($connection,$query_user);
-                        $pass  = mysqli_query($connection,$query_password);   
+                        $result= $cn->insertUserDetails($ID,$first_name,$second_name,$address,$telephone,$email,$school,$occupation);
+                        $pass  = $cn->insertPasswordDetails($ID,$pswrd1);
             
                                                  
                         if ($pass && $result) {
@@ -46,9 +45,18 @@ class newAccCtrl{
         
         else $massage='National Identy value can not be empty<br>';                    
         
-    }
+    
     return $massage;
+    }
+
+
+
+
+    public function checkDetails($ID,$pswrd1,$pswrd2)
+    {
+        $PswrdColumn='passwords';
+    }   
 
 }
 
-?>
+?>  

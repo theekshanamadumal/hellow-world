@@ -1,7 +1,7 @@
 <html>
 <head><title> Login page</title></head>
 <body>
-
+<?php include_once("inc/Header.php"); ?>
 <?php
 if   (isset($_POST['submit'])){
     $username=$_POST['user_name'];
@@ -22,14 +22,13 @@ if   (isset($_POST['submit'])){
 
 ?>
 
-<?php include_once("inc/Header.php"); ?>
 <div class="row">
 
     <div class = "col"></div>
     <div class="col-md-auto ">    
     <div class="formcontainer  ">
-        <form action = 'userLogin.php' method="POST">
-        <div class="container">
+        <form class="userLogin" action = 'userLogin.php' method="POST">
+        <div class="container" class="textInput">
             <label for="uname"><b>Username</b> </label>
             <input name="user_name" type="text" placeholder="Enter Username">
 
