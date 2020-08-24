@@ -30,7 +30,13 @@
     }
 ?>
 
-<form action = "newAccount.php" method="POST">    
+<form action = "newAccount.php" method="POST">  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text">@</span>
+    </div>
+    <input type="text" class="form-control" placeholder="Username">
+  </div>
+
  NATIONAL ID NO : <input name="ID" type="text">
  FIRST_NAME     : <input name="first_name" type="text">
  SECOND_NAME    : <input name="second_name" type="text">

@@ -12,10 +12,10 @@
 <div class="container">
   <div class="row">
         <div class="col-sm-8">  
-            <div class="flex-container">
-                <div><a href="#">Services</a></div>
-                <div><a href="#">Application Forms</a></div>
-                <div><a href="#">Transcript Forms</a></div>
+            <div class="flex-container" >
+                <div ><a style="color: red;" href="services.php">Apply for services</a></div>
+                <div><a style="color: red;" href="applicationDownload.php">Download Application Forms</a></div>
+                <div><a style="color: red;" href="fileAccess.php">View past records</a></div>
             </div>       
         </div>
         <div class="col-sm-4">
