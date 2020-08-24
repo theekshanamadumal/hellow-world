@@ -29,6 +29,11 @@ class connection{
 
     }
 
+    public function numRows($mysqlResult)
+    {
+        return mysqli_num_rows($mysqlResult);
+    }
+
 }
 
 ?>
