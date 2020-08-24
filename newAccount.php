@@ -7,6 +7,7 @@
 </head>
 <body>
 <?php include_once("inc/Header.php"); ?><br>
+<link rel="stylesheet" href="css/newAccount.css">
 
 <?php
     if (isset($_POST['submit'])) {
@@ -29,31 +30,37 @@
         echo $message;
     }
 ?>
+<div class="row">
 
-<form action = "newAccount.php" method="POST">  <div class="input-group mb-3">
-    <div class="input-group-prepend">
-      <span class="input-group-text">@</span>
-    </div>
-    <input type="text" class="form-control" placeholder="Username">
-  </div>
+<div class = "col"></div>
+<div class="col-md-auto "> 
+<div  class="form-container">
 
- NATIONAL ID NO : <input name="ID" type="text">
- FIRST_NAME     : <input name="first_name" type="text">
- SECOND_NAME    : <input name="second_name" type="text">
- ADDRESS        : <input name="address" type="text">
- TELEPHONE      : <input name="telephone" type="text">
- EMAIL ADDRESS   : <input name="email" type="text">
- SCHOOL         : <input name="school" type="text">
- OCCUPATION    :          
- <select name="occupation">
- <option value="teacher">teacher</option>
+    <form action = "newAccount.php" method="POST">
+        
+ <input name="ID" type="text" placeholder="National ID Number" >
+ <input name="first_name" type="text"  placeholder="First Name">
+  <input name="second_name" type="text"  placeholder="Last Name">
+  <input name="address" type="text"  placeholder="Address">
+  <input name="telephone" type="text"  placeholder="Telephone">
+  <input name="email" type="text"  placeholder="Email Address">
+  <input name="school" type="text"  placeholder="School"><br><br>
+  Occupation         
+ <select name="occupation"  placeholder="Occupation"><br><br>
+ <option value=""></option>
+ <option value="teacher">Teacher</option>
  <option value="Principal">Principal</option>
  <option value="Staff">Staff</option>
 </select><br>
- enter   password : <input name="password1" type="password">
- confirm password : <input name="password2" type="password"> 
-<input name="submit" type="submit">
+  <input name="password1" type="password"  placeholder="Enter Password">
+  <input name="password2" type="password"  placeholder="Confirm Password"> 
+  <input name="submit"  class="loginbtn" type="submit" value="Submit">
 </form>
+</div>
+    </div>
+    <div class = "col"></div>
+
+</div>
 
 
 

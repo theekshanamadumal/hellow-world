@@ -1,0 +1,36 @@
+/* Login Page (Admin and User)*/
+/* Bordered form */
+
+.userLogin {
+  border: 3px solid #f1f1f1;
+}
+/* Full-width inputs */
+.textInput {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid f1f1f1;
+  box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+.loginbtn {
+  background-color: #4caf50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* Add a hover effect for buttons */
+.loginbtn:hover {
+  opacity: 0.8;
+}
+
+/* Add padding to containers */
+.formcontainer {
+  padding: 16px;
+}
