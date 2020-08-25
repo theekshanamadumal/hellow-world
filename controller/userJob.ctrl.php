@@ -1,7 +1,9 @@
 <?php
 include_once 'model/userJob.model.php';
+include_once 'model/statusChange.model.php';
 
-class uiControl{
+
+class uiTableControl{
 
     public function requestHistory($loginId)
     {
@@ -27,6 +29,22 @@ class uiControl{
     $uiModel=new uiModel();
     $result=$uiModel->getFinishedHistory($loginId);
     return $result;
+    }
+
+}
+
+class uiButtonControl{
+    public function finishButton($requestNo)
+    {
+        $statusChange= new statusChangeModel();
+        return $statusChange->  changeStatus($requestNo,"finished");
+        
+    }
+    public function resumeButton($requestNo)
+    {
+        $statusChange= new statusChangeModel();
+        return $statusChange->  changeStatus($requestNo,"ongoing");
+        
     }
 
 }

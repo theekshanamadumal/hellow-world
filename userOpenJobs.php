@@ -12,7 +12,7 @@
     <?php 
     require_once 'controller/userJob.ctrl.php';
     $loginId='971650834v';//$_SESSION['loginID'];
-    $uictrll=new uiControl();
+    $uictrll=new uiTableControl();
     $result=$uictrll-> requestHistory($loginId);
     if ($uictrll->hasJobsSubmitted($result)) {
         ?>
@@ -38,10 +38,17 @@
      </tr>
    </thead>
    <tbody>
-   <?php
+     <?php
    
-    $finishButton='<td><button type="button" class="btn btn-secondary">Secondary</button></td></tr>';
-    $resumeButton='<td><button type="button" class="btn btn-warning">Warning</button></td></tr>';
+    $finishButton='<td> <form method="post"> 
+    <input type="hidden" name="requestNo" value={$row["requestNo"]}>
+
+    <input type="submit" name="Finish"
+            class="btn btn-secondary" value="Finish" /> </form></td></tr>';
+    $resumeButton='<td> <form method="post"> 
+    <input type="hidden" name="requestNo" value={$row["requestNo"]}>
+    <input type="submit" name="Resume"
+            class="btn btn-warning" value="Resume" /> </form></td></tr>';
 
     while ($row=$uictrll->fetchData($result)){
         $rowdata= "<td class='column1' >" .$row["requestNo"]."</td><td class='column1'>".$row["details"]."</td><td class='column1'>".$row["status"] . "</td><td class='column1'>".$row["description"]."</td>";
@@ -69,6 +76,25 @@
     else   echo "No Jobs Submitted Yet";
     
     ?>
+
+
+    <?php
+        $uiButtonCtrl= new uiButtonControl();
+
+        if(array_key_exists('Finish', $_POST)) { 
+          echo $_POST["requestNo"];
+            $uiButtonCtrl->finishButton($_POST["requestNo"]); 
+        } 
+        else if(array_key_exists('Resume', $_POST)) { 
+          echo $row["requestNo"];
+          $uiButtonCtrl->resumeButton($row["requestNo"]);  
+        } 
+         
+    ?> 
+
+
+    
+ 
     <?php include_once('inc/Footer.php'); ?>
   </body>
 
