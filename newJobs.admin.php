@@ -11,7 +11,7 @@
 <div class="row">
 <div class="col-sm-8"> </div>
 <div class="col-sm-4"> 
-        <div class="search-bar"><input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.."></div>
+        <div class="search-bar"><input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search..."></div>
 </div>
 </div>
 

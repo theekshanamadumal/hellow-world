@@ -14,7 +14,7 @@
                 <h1>Job Services</h1>
                 <div class= "btns">
                     <button class="btn btn-1" onclick="location.href='newJobs.admin.php';" style="cursor: pointer;">New Jobs</button>
-                    <button class="btn btn-1" onclick="location.href='#';" style="cursor: pointer;">Pending Jobs</button>
+                    <button class="btn btn-1" onclick="location.href='pendingJobs.admin.php';" style="cursor: pointer;">Pending Jobs</button>
                     <button class="btn btn-1" onclick="location.href='#';" style="cursor: pointer;">Ongonig Jobs</button>
                     <button class="btn btn-1" onclick="location.href='#';" style="cursor: pointer;">Completed Jobs</button>
                 </div>        
