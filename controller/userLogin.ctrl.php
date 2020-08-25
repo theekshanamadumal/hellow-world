@@ -19,7 +19,7 @@ class loginCtrl{
 
                 if ($password==$givenPassword and $user_id==$username) {
                     $this->makeSession($destination,$user_id);
-                    //$massege= "<hr>LOGIN SUCCESSED!";
+                    $massege= "<hr>LOGIN SUCCESSED!";
                 }
                 else $massege= "invalid user name or password";
             }
@@ -33,6 +33,7 @@ class loginCtrl{
     private function makeSession($destination,$user_id){
             $_SESSION['loginID'] = $user_id;
             $_SESSION['uI']=$destination;
+
             header("location:{$destination}");
             //die;
     }   

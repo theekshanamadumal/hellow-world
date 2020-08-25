@@ -1,4 +1,7 @@
-
+<?php 
+if (session_status() == PHP_SESSION_NONE) {
+  session_start();
+}?>
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 <!-- Custom CSS Style Sheet -->
@@ -39,7 +42,7 @@
      </ul>
      <ul class="nav navbar-nav navbar-right" id="myNavbar">
           
-          <?php// if(!isset($_SESSION['loginID'])) {?>
+          <?php if(!isset($_SESSION['loginID'])) {?>
             <li>
               <a href="newAccount.php">Register&nbsp;</a>
             </li>
@@ -47,10 +50,11 @@
               <a href="userLogin.php"> Login</a>
             </li>
             
-          <?php /*} else {?>
-            <li><a href=<?php  echo $_SESSION['uI'] ?>><?php echo $_SESSION['loginID'];?></a></li>
-            <li><a href="logout.php">Logout</a></li>
-          <?php }*/?>
+          <?php } else {?>
+            <li><a href=<?php  echo $_SESSION['uI'] ?>>
+            <?php echo $_SESSION['loginID'];?></a>&nbsp;</li>
+            <li><a href="controller/logout.ctrl.php">Logout</a></li>
+          <?php }?>
       </ul>
     
   </div>
