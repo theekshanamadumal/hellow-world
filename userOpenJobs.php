@@ -12,7 +12,7 @@
     <?php 
     require_once 'controller/userJob.ctrl.php';
     $loginId=$_SESSION['loginID'];
-    $uictrll=new uiControl();
+    $uictrll=new uiTableControl();
     $result=$uictrll-> requestHistory($loginId);
     if ($uictrll->hasJobsSubmitted($result)) {
         ?>
