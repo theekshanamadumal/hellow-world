@@ -14,8 +14,8 @@
         <div class="col-sm-8">  
             <div class="flex-container" >
                 <div ><a style="color: red;" href="services/servicesHome.php">Apply for services</a></div>
-                <div><a style="color: red;" href="applicationDownload.php">Download Application Forms</a></div>
-                <div><a style="color: red;" href="fileAccess.php">View past records</a></div>
+                <div><a style="color: red;" href="files/applicationDownload.php">Download Application Forms</a></div>
+                <div><a style="color: red;" href="files/fileAccess.php">View past records</a></div>
             </div>       
         </div>
         <div class="col-sm-4">
