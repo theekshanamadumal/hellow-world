@@ -24,7 +24,7 @@ if (session_status() == PHP_SESSION_NONE) {
 </div>
 
 <!-- Navigation Panel -->
-<nav class="navbar navbar-expand-lg navbar-light bg-company-red" rounded">
+<nav class="navbar navbar-expand-lg navbar-light bg-company-red rounded">
   <a class="navbar-brand  d-none d-sm-block d-md-none d-block d-sm-none d-none d-md-block d-lg-none" href="#">Online Web Portal</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -43,17 +43,17 @@ if (session_status() == PHP_SESSION_NONE) {
      <ul class="nav navbar-nav navbar-right" id="myNavbar">
           
           <?php if(!isset($_SESSION['loginID'])) {?>
-            <li>
-              <a href="newAccount.php">Register&nbsp;</a>
+            <li class="nav-item active">
+              <a class="nav-link" href="newAccount.php">Register&nbsp;</a>
             </li>
-            <li>
-              <a href="userLogin.php"> Login</a>
+            <li class="nav-item active">
+              <a class="nav-link" href="userLogin.php"> Login</a>
             </li>
             
           <?php } else {?>
-            <li><a href=<?php  echo $_SESSION['uI'] ?>>
+            <li class="nav-item active"><a class="nav-link" href=<?php  echo $_SESSION['uI'] ?>>
             <?php echo $_SESSION['loginID'];?></a>&nbsp;</li>
-            <li><a href="controller/logout.ctrl.php">Logout</a></li>
+            <li class="nav-item active"><a class="nav-link" href="controller/logout.ctrl.php">Logout</a></li>
           <?php }?>
       </ul>
     
