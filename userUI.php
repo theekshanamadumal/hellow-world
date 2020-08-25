@@ -14,8 +14,9 @@
                 <h1>Job Services</h1>
                 <p>Description</p>
                 <div class= "btns">
-                    <button class="btn btn-1" onclick="location.href='userOpenJobs.php';" style="cursor: pointer;">Open Jobs</button>
-                    <button class="btn btn-1" onclick="location.href='userFinishedJobs.php';" style="cursor: pointer;">Finished Jobs</button>
+                    <button class="btn btn-1" onclick="location.href='services/servicesHome.php';" style="cursor: pointer;">Request a Service</button>
+                    <button class="btn btn-1" onclick="location.href='userOpenJobs.php';" style="cursor: pointer;">Open Services</button>
+                    <button class="btn btn-1" onclick="location.href='userFinishedJobs.php';" style="cursor: pointer;">Finished Services</button>
                 </div>        
         </div>
         <div class="container p-3 my-3 bg-company text-dark">
