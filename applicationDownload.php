@@ -6,8 +6,13 @@
     <title>download applications</title>
 </head>
 <body>
-<?php include_once("../inc/Header.php"); ?>
-    <h1>code to application Download</h1>
-    <?php include_once('../inc/Footer.php'); ?>
+<?php include_once("inc/Header.php"); ?>
+
+
+
+
+
+
+<?php include_once('inc/Footer.php'); ?>
 </body>
 </html>
