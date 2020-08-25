@@ -39,8 +39,25 @@
    </thead>
    <tbody>
    <?php
+   
+    $finishButton='<td><button type="button" class="btn btn-secondary">Secondary</button></td></tr>';
+    $resumeButton='<td><button type="button" class="btn btn-warning">Warning</button></td></tr>';
+
     while ($row=$uictrll->fetchData($result)){
-        echo "<><td class='column1' >" .$row["requestNo"]."</td><td class='column1'>".$row["details"]."</td><td class='column1'>".$row["status"] . "</td><td class='column1'>".$row["description"]."</td>".if($row["status"]=="Completed"){"<td><button type="button" class="btn btn-primary">Primary</button></td>"}."</tr>"";
+        $rowdata= "<td class='column1' >" .$row["requestNo"]."</td><td class='column1'>".$row["details"]."</td><td class='column1'>".$row["status"] . "</td><td class='column1'>".$row["description"]."</td>";
+        
+        switch ($row["status"]) {
+          case 'completed':
+            echo $rowdata,$finishButton;
+            break;
+          
+          case 'pending':
+            echo $rowdata,$resumeButton;
+          
+          default:
+            echo'</tr>';
+            break;
+        }
     }?>
             </tbody>
         </table>
@@ -60,5 +77,5 @@
 
 
    
-   
+
    

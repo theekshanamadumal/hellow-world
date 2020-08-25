@@ -9,7 +9,6 @@
   <body>
   <?php include_once("inc/Header.php"); ?>
   <link rel="stylesheet" href="css/newJobs.css">
-  user finished jobss
     <?php 
     require_once 'controller/userJob.ctrl.php';
     $loginId='971650834v';//$_SESSION['loginID'];

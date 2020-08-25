@@ -41,10 +41,10 @@
           
           <?php// if(!isset($_SESSION['loginID'])) {?>
             <li>
-              <a href="newAccount.php"><span></span> Register</a>
+              <a href="newAccount.php">Register&nbsp;</a>
             </li>
             <li>
-              <a href="userLogin.php"><span></span> Login</a>
+              <a href="userLogin.php"> Login</a>
             </li>
             
           <?php /*} else {?>
