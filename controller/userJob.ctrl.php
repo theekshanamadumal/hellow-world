@@ -1,5 +1,5 @@
 <?php
-include_once 'model/ui.model.php';
+include_once 'model/userJob.model.php';
 
 class uiControl{
 
@@ -22,5 +22,14 @@ class uiControl{
     {
         return $result-> fetch_assoc();
     }
+    public function requestFinishedHistory($loginId)
+    {
+    $uiModel=new uiModel();
+    $result=$uiModel->getFinishedHistory($loginId);
+    return $result;
+    }
+
 }
+
+
 ?>
