@@ -40,7 +40,7 @@
    <tbody>
    <?php
     while ($row=$uictrll->fetchData($result)){
-        echo "<><td class='column1' >" .$row["requestNo"]."</td><td class='column1'>".$row["details"]."</td><td class='column1'>".$row["status"] . "</td><td class='column1'>".$row["description"]."</td>".if($row["status"]=="Completed"){"<td>"};
+        echo "<><td class='column1' >" .$row["requestNo"]."</td><td class='column1'>".$row["details"]."</td><td class='column1'>".$row["status"] . "</td><td class='column1'>".$row["description"]."</td>".if($row["status"]=="Completed"){"<td><button type="button" class="btn btn-primary">Primary</button></td>"}."</tr>"";
     }?>
             </tbody>
         </table>
