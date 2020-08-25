@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="css/newJobs.css">
     <?php 
     require_once 'controller/userJob.ctrl.php';
-    $loginId='971650834v';//$_SESSION['loginID'];
+    $loginId=$_SESSION['loginID'];
     $uictrll=new uiTableControl();
     $result=$uictrll-> requestFinishedHistory($loginId);
     if ($uictrll->hasJobsSubmitted($result)) {
