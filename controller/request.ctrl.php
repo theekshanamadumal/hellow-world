@@ -19,7 +19,7 @@ class requestCtrl{
                 if ($occ_result){
                     //echo "vasg";
                     $details=$cn->fetchAssoc($occ_result);
-                    $occ=$details['school'];
+                    $occ=$details['occupation'];
                     
                     $can_result=$cn->checkQulification($var);
 
