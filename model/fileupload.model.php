@@ -10,4 +10,14 @@ public function file_details($filename,$size){
     return $result;      
 }
 }
+
+class fileUplpoadModel extends connection{
+    
+public function uploadFile($tableName)
+{
+    
+}
+
+}
+
 ?>

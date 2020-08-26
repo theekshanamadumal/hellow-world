@@ -8,7 +8,7 @@ class request extends connection {
     
     public function checkOccupation($id){
         
-        $query= "SELECT * FROM user WHERE ID='$id'";
+        $query= "SELECT * FROM userdetails WHERE ID='$id'";
         $result=$this->runQuery($query);
                 
         return $result;
