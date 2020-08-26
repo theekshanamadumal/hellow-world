@@ -31,10 +31,10 @@
 
             
 
-            <label for="myfile">Select files:</label>
+            <label for="myfile">Select files (Submit only in pdf form):</label>
             <input type="file" id="myfile" name="myfile" multiple><br><br>
 
-            <button type="submit" class="btn btn-success">Submit</button>
+            <button type="submit" class="btn btn-success">Upload</button>
 
 
         </form> 

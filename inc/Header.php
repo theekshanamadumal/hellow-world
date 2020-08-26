@@ -15,7 +15,7 @@ if (session_status() == PHP_SESSION_NONE) {
 <!-- Logo Panel -->
 <div class="row p-1" >
         <div class="col">
-            <div class="logo"><img class="image" src="img/logo.png" width="400" height="80"></div>
+            <div class="logo"><img class="Responsive image" src="img/logo.png" width="400" height="80"></div>
             <div class="clearfix"></div>
         </div>
         <div class="col   d-none d-md-block d-lg-block ">

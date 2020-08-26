@@ -23,30 +23,47 @@ class newAccCtrl{
                                                  
                         if ($pass && $result) {
                             
-                            $massage="account created successfully<br><hr><a href='home.php'>Home Page</a>"; 
+                            $massage="Account created successfully<br>Head to Login.        " ;
+                            $status="success"; 
                         
                         }  
                                                        
-                        else  $massage="account creation failed <br><hr>";  
+                        else { $massage="account creation failed."; 
+                               $status="error"; }
                     
                     }
-                    else $massage= "Already account exists!";
+                    else {$massage= "Already account exists!";
+                          $status="warning";
+                    
+                    }
                 
                 }    
-                else  $massage="account creation failed 2<br><hr>";  
+                else  {$massage="account creation failed ";  
+                       $status="error";
+                }
 
             }
             elseif ($pswrd1==null){
-                $massage="password can not be empty.<hr>";    
+                $massage="password can not be empty.";
+                $status="warning";    
+            }
+            elseif ($pswrd2==null){
+                $massage="Confirm the password.";
+                $status="warning";    
             }
 
-            else $massage="passwords are not maching.<hr>";    
+            else {$massage="passwords are not maching.";
+                  $status="warning";  
+            
+            }  
         }
         
-        else $massage='National Identy value can not be empty<br>';                    
+        else {$massage='National Identy value can not be empty.';
+                $status="warning";
+        }                    
         
     
-    return $massage;
+    return array($massage,$status);
     }
 
 

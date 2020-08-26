@@ -5,6 +5,7 @@ class loginCtrl{
     private $username; 
     private $table;
     public $massege;
+    public $status;
 
     public function log($table,$PswrdColumn,$username,$givenPassword,$destination){
         $this->username=$username;
@@ -20,14 +21,20 @@ class loginCtrl{
                 if ($password==$givenPassword and $user_id==$username) {
                     $this->makeSession($destination,$user_id);
                     $massege= "<hr>LOGIN SUCCESSED!";
+                    $status="success";
                 }
-                else $massege= "invalid user name or password";
+                else{ $massege= "Invalid username or password";
+                      $status="warning";
+                }
+                     
             }
-            else $massege= "<hr>LOGIN FAILED!";       
+            else{ $massege= "<hr>LOGIN FAILED!";    
+                  $status="warning";}   
     
         }
-        else $massege=" user name and password cannot be empty";
-        return $massege;
+        else { $massege=" Username or Password cannot be kept empty";
+                $status="warning";}
+        return array($massege,$status);
     }
 
     private function makeSession($destination,$user_id){

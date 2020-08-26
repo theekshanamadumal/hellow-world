@@ -25,9 +25,11 @@
         $occupation=$_POST['occupation'];
 
         require_once 'controller/newAcc.ctrl.php';
+        require_once 'alert.view.php';
         $newAcCtrll=new newAccCtrl();
-        $message=$newAcCtrll->createAccount($ID,$pw1,$pw2,$first_name,$second_name,$address,$telephone,$email,$school,$occupation);
-        echo $message;
+        $alertView=new alert();
+        list($message,$status)=$newAcCtrll->createAccount($ID,$pw1,$pw2,$first_name,$second_name,$address,$telephone,$email,$school,$occupation);
+        echo $alertView->showAlert($message,$status);
     }
 ?>
 <div class="row">

@@ -13,9 +13,11 @@ if   (isset($_POST['submit'])){
     
 
     require_once 'controller/userLogin.ctrl.php';
+    require_once 'alert.view.php';
     $loginctrll=new loginCtrl();
-    $massege=$loginctrll->log($table,$PswrdColumn,$username,$givenPassword,$destination);
-    echo$massege;
+    $alertView=new alert();
+    list($massege, $status)=$loginctrll->log($table,$PswrdColumn,$username,$givenPassword,$destination);
+    echo $alertView->showAlert($massege,$status);
     
 }
     
