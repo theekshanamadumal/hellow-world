@@ -1,9 +1,7 @@
 
          
     <div class='container-fluid text-left'>
-      <div class='row content'>
-        <div class='col-sm-1 sidenav'></div>
-        <div class='col-sm-11 sidenav'>
+      
           <h3>විදේශ නිවාඩු සේවාව</h3>
 
           <div>
@@ -47,15 +45,11 @@
             </h4>
           </div>
           <div><p>කිව නොහැක</p></div>
-          <div>
-            <!--<button type='button' class='btn btn-default'>Resquest</button>-->
-            <form method='post'>
-            <input type='submit' name='Request' class='button' value='Request' />
-            </form>
+          
+           
             
-          </div>
-        </div>
-      </div>
+         
+      
     </div>
 
    

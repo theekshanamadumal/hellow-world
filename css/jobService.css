@@ -1,0 +1,4 @@
+.contain.row {
+  display: flex;
+  flex-wrap: wrap;
+}
