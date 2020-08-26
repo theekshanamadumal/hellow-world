@@ -17,9 +17,8 @@
                     <option>3</option>
                     <option>4</option>
                 </select>
-                
             </div>
-  
+
             <div class="form-group">
                 <label for="inputdefault">NIC number</label>
                 <input class="form-control" id="inputdefault" type="text">
