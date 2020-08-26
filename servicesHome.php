@@ -9,7 +9,7 @@
 <h1>ලබා දෙන සේවා </h1>
           <p> අවශ‍ය සේවා ගැන වැඩිපුර තොරතුරු දැන ගැනීම සඳහා අදාළසේවාව මත ඔබන්න.</p>
           <ol>
-            <li ><a href="1.php" target="_self">විදේශ නිවාඩු</a> </li>
+            <li ><a href="jobService.php?jobType=1"  target="_self">විදේශ නිවාඩු</a> </li>
             <li ><a href="2.php" target="_self">සේවයෙන් විශ්‍රාම ගැන්වීම නිර්දේශ කිරීම</a> </li>
             <li ><a href="3.php" target="_self">විශ්‍රාම පුර්ව නිවාඩු</a> </li>
             <li ><a href="4.php" target="_self">විශ්‍රාම සුදු ගොනුව ප්‍රදේශීය ලේකම් කාර්යාලය වෙත ගැවීම</a> </li>

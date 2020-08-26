@@ -2,10 +2,18 @@
 
     
 
-    require_once '../controller/request.ctrl.php';
+    require_once 'controller/request.ctrl.php';
+    
     $reqctrll=new requestCtrl();
-    $massege=$reqctrll->requst($variable);
-    echo$massege;
+    list($massege,$status)=$reqctrll->requst($variable);
+
+    require_once 'alert.view.php';
+
+    $alertView=new alert();
+
+    echo $alertView->showAlert($massege,$status);
+    
+
     
 
     
