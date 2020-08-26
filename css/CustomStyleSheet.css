@@ -51,10 +51,17 @@ input[type="password"] {
 .applwidth{         
   width: auto;
   overflow: hidden;
+
 }
 /* color in application forms*/
 .bg-formcolor{
-  background-image:linear-gradient(#339933,#99cc00) ;
+  border: 1px solid black;
+  width: 90%;
+  height: 50px;
+  margin-right: auto;
+  margin-left: auto;
+  color: antiquewhite;
+  background-image:linear-gradient(#a52a2a,#99cc00) ;
 }
 
 body{

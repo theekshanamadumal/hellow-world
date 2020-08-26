@@ -12,7 +12,7 @@
 <?php include_once("inc/Header.php"); ?>
 <div class="container" >
 <div class="row">
-    <div class="col-sm-3">
+    <div class="col-sm-3" style="font-size: 1.5em;">
         <br><br>You can download any application form out of given forms as a word document by clicking on the word icon or application form name.<br><br> Then save the word file by clicking save buttton on imerging window.
     </div>
     <div class="col-sm-9">
