@@ -25,15 +25,11 @@
             </div>
 
             <div class="form-group">
-                <label for="inputdefault">Filename</label>
+                <label for="inputdefault">Description</label>
                 <input class="form-control" id="inputdefault" type="text">
             </div>
 
-            <div class="form-group">
-                <label for="comment">Description</label>
-                <textarea class="form-control" rows="5" id="comment"></textarea>
-            </div>
-
+            
 
             <label for="myfile">Select files:</label>
             <input type="file" id="myfile" name="myfile" multiple><br><br>
