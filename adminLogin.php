@@ -1,7 +1,7 @@
 <html>
 <head><title> Login page</title></head>
 <body>
-
+<?php include_once("inc/Header.php"); ?>
 <?php
 if   (isset($_POST['submit'])){
     $username=$_POST['user_name'];
@@ -21,7 +21,7 @@ if   (isset($_POST['submit'])){
 
 ?>
 
-<?php include_once("inc/Header.php"); ?>
+
 <div class="row">
 
     <div class = "col"></div>
