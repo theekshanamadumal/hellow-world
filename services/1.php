@@ -11,7 +11,7 @@
     <?php include_once("../inc/Header.php");
         //include_once 'inc/Header.php';
      ?>
-    <?php include_once("inc/ArticalHead.php"); ?>
+    <?php include_once("../inc/ArticalHead.php"); ?>
     <?php //require_once('inc/connection.php');?>
 
     
