@@ -24,7 +24,7 @@
                 <h1>File Management</h1>
                 <div class= "btns">
                 <button class="btn btn-1" onclick="location.href='#';" style="cursor: pointer;">Search</button>
-                <button class="btn btn-1" onclick="location.href='#';" style="cursor: pointer;">Uploads</button>
+                <button class="btn btn-1" onclick="location.href='fileUpload.admin.php';" style="cursor: pointer;">Uploads</button>
                 </div>
         </div>
     </div>
