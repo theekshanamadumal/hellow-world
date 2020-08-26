@@ -1,5 +1,5 @@
 <?php
-include_once 'model/request.model.php';
+include_once '../model/request.model.php';
 
 class requestCtrl{
     
@@ -8,21 +8,26 @@ class requestCtrl{
     public function requst($var){
 
         if(isset($_POST['Request'])){
+            
             if(isset($_SESSION['loginID'])){
+                
                 $id=$_SESSION['loginID'];
+                //echo "vasg";
                 $cn = new request();
                 $occ_result=$cn->checkOccupation($id);
 
                 if ($occ_result){
-
+                    //echo "vasg";
                     $details=$cn->fetchAssoc($occ_result);
-                    $occ=$details['occupation'];
+                    $occ=$details['school'];
+                    
                     $can_result=$cn->checkQulification($var);
 
                     if ($can_result){
 
                         $details2=$cn->fetchAssoc($can_result);
                         $can=$details2[$occ];
+                        
 
                     }
 
@@ -62,6 +67,7 @@ class requestCtrl{
             }
 
             else{
+                header("Location: ../userLogin.php");
                 $massege="<div class='container'> <div class='alert alert-success alert-dismissible'>
                   <button type='button' class='close' data-dismiss='alert'>&times;</button>
                   <strong>Warning!</strong> Must be logged in order to submit request.
@@ -77,3 +83,4 @@ class requestCtrl{
     }
 
 }
+?>
