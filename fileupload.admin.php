@@ -33,8 +33,8 @@
 
             <label for="myfile">Select files:</label>
             <input type="file" id="myfile" name="myfile" multiple><br><br>
-
-            <button type="submit" class="btn btn-success">Submit</button>
+            
+            <button type="submit" class="btn btn-success">Upload</button>
 
 
         </form> 
