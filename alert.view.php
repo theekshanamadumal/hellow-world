@@ -16,17 +16,23 @@ class alert{
                 break;
             case 'info':
                  $result="<br><div class='alert alert-info alert-dismissible fade show'>
-                          <strong>Information! </strong>".$message."</div>";
+                          <strong>Information! </strong>".$message."<button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+                          <span aria-hidden='true'>&times;</span>
+                        </button></div>";
                  break;
 
             case 'warning':
                   $result="<br><div class='alert alert-warning alert-dismissible fade show'>
-                            <strong>Warning! </strong>".$message."</div>";
+                            <strong>Warning! </strong>".$message."<button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+                            <span aria-hidden='true'>&times;</span>
+                          </button></div>";
                   break; 
             
             case 'error':
                   $result="<br><div class='alert alert-danger alert-dismissible fade show'>
-                           <strong>Error! </strong>".$message."</div>";
+                           <strong>Error! </strong>".$message."<button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+                           <span aria-hidden='true'>&times;</span>
+                         </button></div>";
                     break;   
             
             

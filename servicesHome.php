@@ -6,6 +6,7 @@
     <title>services</title>
 </head>
 <body>
+<?php include_once("inc/Header.php"); ?>
 <h1>ලබා දෙන සේවා </h1>
           <p> අවශ‍ය සේවා ගැන වැඩිපුර තොරතුරු දැන ගැනීම සඳහා අදාළසේවාව මත ඔබන්න.</p>
           <ol>
@@ -32,5 +33,6 @@
             <li ><a href="21.php" target="_self">ඡායාරූප සහතික කිරීම</a> </li>
             <li ><a href="22.php" target="_self">පාසැල් ගොඩනැගිලි අවශ්‍යතා නිර්දේශ කර අනුමැතිය ඉදිරිපත් කිරීම</a> </li>
           </ol>
+<?php include_once('inc/Footer.php'); ?>
 </body>
 </html>

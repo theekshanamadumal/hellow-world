@@ -45,30 +45,24 @@ class requestCtrl{
                         $status="success";
                       }
                       else{
-                        $massege="<div class='container'> <div class='alert alert-success alert-dismissible'>
-                        <button type='button' class='close' data-dismiss='alert'>&times;</button>
-                        <strong>Danger!</strong> Unable to submit request check whether you qualify as an candidate for the request.
-                        </div></div>";
+                        $massege=" Unable to submit request check whether you qualify as an candidate for the request.";
+                        $status="warning";
                       }
 
 
                 }
 
                 else{
-                    $massege="<div class='container'> <div class='alert alert-success alert-dismissible'>
-                      <button type='button' class='close' data-dismiss='alert'>&times;</button>
-                      <strong>Danger!</strong> Unable to submit request check whether you qualify as an candidate for the request.
-                      </div></div>";
+                    $massege="Unable to submit request check whether you qualify as an candidate for the request.";
+                    $status="warning";
                   }
 
             }
 
             else{
                 
-                $massege="<div class='container'> <div class='alert alert-success alert-dismissible'>
-                  <button type='button' class='close' data-dismiss='alert'>&times;</button>
-                  <strong>Warning!</strong> Must be logged in order to submit request. <br> <a href='userLogin.php'>Login Here</a>
-                  </div></div>";
+                $massege="Must be logged in order to submit request. <br> <a href='userLogin.php'>Login Here</a>";
+                $status="warning";
               }
         //$can_result=$cn->checkQulification($var);
         //$put_result=$cn->putRequsts($var,$id);
