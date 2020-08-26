@@ -51,7 +51,10 @@
             class="btn btn-warning" value="Resume" /> </form></td></tr>';
 
     while ($row=$uictrll->fetchData($result)){
-        $rowdata= "<td class='column1' >" .$row["requestNo"]."</td><td class='column1'>".$row["details"]."</td><td class='column1'>".$row["status"] . "</td><td class='column1'>".$row["description"]."</td>";
+        $rowdata= "<td class='column1' >" .$row["requestNo"]
+                 ."</td><td class='column1'>".$row["details"]
+                 ."</td><td class='column1'>".$row["status"]
+                 ."</td><td class='column1'>".$row["description"]."</td>";
         
         switch ($row["status"]) {
           case 'completed':
@@ -60,9 +63,10 @@
           
           case 'pending':
             echo $rowdata,$resumeButton;
+          break;
           
           default:
-            echo'</tr>';
+            echo $rowdata,'<td></td></tr>';
             break;
         }
     }?>
