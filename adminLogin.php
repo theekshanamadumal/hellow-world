@@ -36,11 +36,6 @@ if   (isset($_POST['submit'])){
             <input name="password" type="password" placeholder="Enter Password">
 
             <input name="submit"  class="loginbtn" type="submit" value="Login">
-            <br>
-            <br>    
-            <div class="d-flex justify-content-between">
-            <a href="ChangePassword.php">Forgot Password?</a>
-            <a href="NewAccount.php">Create New Account</a></div>
             </div>
         </form>	
     </div>

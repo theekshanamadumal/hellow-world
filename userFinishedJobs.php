@@ -49,7 +49,11 @@
   </div>
     <?php
     }
-    else   echo "No Jobs Submitted Yet";
+    else{
+      require_once 'alert.view.php';
+      $alertView=new alert();
+      echo $alertView->showAlert('No Jobs Submitted Yet','info');
+    }  
     
     ?>
     <?php include_once('inc/Footer.php'); ?>
