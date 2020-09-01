@@ -48,22 +48,29 @@ input[type="password"] {
 }
 
 /*  width to appliation forms links in applicationDownload.php*/
-.applwidth{         
+.applwidth {
   width: auto;
   overflow: hidden;
-
 }
 /* color in application forms*/
-.bg-formcolor{
+.bg-formcolor {
   border: 1px solid black;
   width: 90%;
   height: 50px;
   margin-right: auto;
   margin-left: auto;
   color: antiquewhite;
-  background-image:linear-gradient(#a52a2a,#99cc00) ;
+  background-image: linear-gradient(#a52a2a, #99cc00);
 }
 
-body{
+body {
   font-family: Arial, Helvetica, sans-serif;
+  position: relative;
+  padding-bottom: 159.26px;
+  min-height: 100vh;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
 }

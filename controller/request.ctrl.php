@@ -9,7 +9,7 @@ class requestCtrl{
         $massege="";
         $status="";
 
-        if(isset($_POST['Request'])){
+        
             
             if(isset($_SESSION['loginID'])){
                 
@@ -67,7 +67,7 @@ class requestCtrl{
         //$can_result=$cn->checkQulification($var);
         //$put_result=$cn->putRequsts($var,$id);
 
-        }
+        
 
         return array($massege,$status);
 
