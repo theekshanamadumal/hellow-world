@@ -17,10 +17,31 @@ class connection{
         return $connection;
     }
 
+    public function executeQuery($query){
+        $preperation= $this->prepareQuery($query);
+        return $preperation->execute();
+        
+    }
+
+
+    public function prepareQuery($query){
+        $connection= $this->connect();
+        
+        return $connection->prepare($query);
+        
+    }
+
+
+    public function affectedRows($result){
+        return $result->rowCount();
+        
+    }
+
+    
     public function runQuery($query){
         $connection= $this->connect();
         return mysqli_query($connection,$query);
-        echo"sssssss";
+        
     }
 
     public function fetchAssoc($result){

@@ -15,8 +15,7 @@
         $NIC=$_POST['NIC'];
         $description=$_POST['description'];
 
-        $filename = $_FILES['fileToUpload']['name'];
-        $size = $_FILES['fileToUpload']['size'];
+        $file = $_FILES['fileToUpload'];
 
         $targetFileName=$NIC.$description;
 	    $target_file = "records/".$category."/".$targetFileName;
@@ -24,8 +23,8 @@
        
 
        require_once 'controller/fileupload.ctrl.php';
-       $fileupload = new fileupload();
-       $message=$fileupload->file_upload($target_file);
+       $fileupload = new fileuploader();
+       $message=$fileupload->uploadFile($target_file,$file);
        echo $message;
           }
     ?>

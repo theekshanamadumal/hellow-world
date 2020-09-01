@@ -38,14 +38,18 @@ class uiButtonControl{
     {
         
         $statusChange= new statusChangeModel();
-        return $statusChange->  changeStatus($requestNo,"finished");
-        
+        $ans= $statusChange->  changeStatus($requestNo,"finished");
+        //echo $statusChange->numRows($ans);
+        return $ans;
+               
     }
     public function resumeButton($requestNo)
     {
         $statusChange= new statusChangeModel();
-        return $statusChange->  changeStatus($requestNo,"ongoing");
-        
+        $ans= $statusChange->  changeStatus($requestNo,"ongoing");
+        //echo $statusChange->numRows($ans);
+        return $ans;
+                
     }
 
 }

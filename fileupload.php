@@ -18,11 +18,12 @@
    	if(isset($_POST['submit'])){
        $target_dir = "uploads/";
 	   $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+	   $file = $_FILES['fileToUpload'];
 	   $filename = $_FILES['fileToUpload']['name'];
 	   $size = $_FILES['fileToUpload']['size'];
        require_once 'controller/fileupload.ctrl.php';
-       $fileupload = new fileupload();
-       $message=$fileupload->file_upload($target_file);
+       $fileupload = new fileuploader();
+       $message=$fileupload->uploadFile($target_file,$file,$size);
        echo $message;
    	   }
     ?>

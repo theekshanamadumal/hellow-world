@@ -97,11 +97,12 @@
         if(array_key_exists('Finish', $_POST)) { 
           
           
-            $uiButtonCtrl->finishButton($_POST["requestNo"]); 
+            $ans=$uiButtonCtrl->finishButton($_POST["requestNo"]); 
+           
         } 
         else if(array_key_exists('Resume', $_POST)) { 
           
-          $uiButtonCtrl->resumeButton($_POST["requestNo"]);  
+          $ans=$uiButtonCtrl->resumeButton($_POST["requestNo"]);  
         } 
          
     ?> 

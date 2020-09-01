@@ -1,11 +1,9 @@
 <?php
 include_once 'model/fileupload.model.php';
-class fileupload{
-	public function file_upload($target_file)
+class fileuploader{
+	public function uploadFile($target_file,$file)
     {
-    	$filename = $_FILES['fileToUpload']['name'];
-	   	$size = $_FILES['fileToUpload']['size'];
-		if($this->is_file_choosen()){
+		if($this->is_file_choosen($file)){
 			$message = "No file selected";
 		}
 		else{
@@ -13,16 +11,13 @@ class fileupload{
 		      $message = "Sorry, file already exists.";
 		    }
 
-		    elseif ($_FILES["fileToUpload"]["size"] > 50000000) {
+		    elseif ($file['size'] > 50000000) {
 		      $message = "Sorry, your file is too large.";
 		    }
 
 		    else{
-		      if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-		      	$uploadModel = new uploadModel();
-		      	$msg = $uploadModel->file_details($filename,$size);
-		      	echo $msg;
-		        $message =  "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+		      if (move_uploaded_file($file["tmp_name"], $target_file)) {
+		      	
 		      } else {
 		        $message = "Sorry, there was an error uploading your file.";
 		      }
@@ -33,10 +28,26 @@ class fileupload{
 	}
 	public function is_file_choosen()
     {
-        if(!isset($_FILES['fileToUpload']) || $_FILES['fileToUpload']['error'] == UPLOAD_ERR_NO_FILE) {
+        if(!isset($file) || $file['error'] == UPLOAD_ERR_NO_FILE) {
             return true;
         }
         else return false;
-    }
+	}
+	
+
+
+
+	public function updateRecordTable($recordType,$recordName,$userId){
+		$uploadModel = new fileUplpoadModel();
+		return $uploadModel-> uploadFile($recordType,$recordName,$userId);
+
+
+	}
+	
+	
 }
+
 ?>
+$msg = $uploadModel->file_details($file['name']);
+echo $msg;
+$message =  "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
