@@ -52,7 +52,7 @@ if (session_status() == PHP_SESSION_NONE) {
             
           <?php } else {?>
             <li class="nav-item active"><a class="nav-link" href=<?php  echo $_SESSION['uI'] ?>>
-            <?php echo $_SESSION['loginID'];?></a>&nbsp;</li>
+            <?php echo $_SESSION['loginID'];?></a></li>
             <li class="nav-item active"><a class="nav-link" href="controller/logout.ctrl.php">Logout</a></li>
           <?php }?>
       </ul>

@@ -19,8 +19,10 @@ class connection{
 
     public function runQuery($query){
         $connection= $this->connect();
+        
         return mysqli_query($connection,$query);
-        echo"sssssss";
+        
+        
     }
 
     public function fetchAssoc($result){

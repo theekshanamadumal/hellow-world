@@ -66,11 +66,13 @@ input[type="password"] {
 body {
   font-family: Arial, Helvetica, sans-serif;
   position: relative;
-  padding-bottom: 159.26px;
+  padding-bottom: 111px;
   min-height: 100vh;
 }
 
 footer {
   position: absolute;
+  padding: 12px;
+
   bottom: 0;
 }
