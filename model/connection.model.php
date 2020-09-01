@@ -40,7 +40,9 @@ class connection{
     
     public function runQuery($query){
         $connection= $this->connect();
+        
         return mysqli_query($connection,$query);
+        
         
     }
 

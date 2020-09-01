@@ -60,7 +60,7 @@
 
         $resumeButton='<td> <form method="post"> 
         <input type="hidden" name="requestNo" value='.$row["requestNo"].'>
-        <input type="submit" name="Resume"
+        <input type="submit" id="Resume"
                 class="btn btn-warning" value="Resume" /> </form></td></tr>';
              
         
@@ -82,6 +82,7 @@
         </table>
         </div>
   </div>
+
   
 
     <?php
@@ -112,6 +113,26 @@
  
     <?php include_once('inc/Footer.php'); ?>
     
+<div class="popup">
+  <div class="popup-content">
+  <img src="img/close.jpg" alt="" class="close"> 
+        <form method='post'>
+           
+                  <h1>Request ID: 6</h1>
+                  <h1>Request Type: 13</h1>         
+                  <label for="myfile">Select files:</label>
+                  <input type="file" id="myfile" name="myfile" multiple><br><br>
+                  <input type='submit' name='Confirm' class='button' value='Confirm' />                  
+
+        </form>
+  </div>
+  
+  </div>
+  <script>
+    document.getElementById("Resume").addEventListener("click",function(){
+      document.querySelector(".popup").style.display="flex";
+    })
+  </script>
   </body>
 
 </html>

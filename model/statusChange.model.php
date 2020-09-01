@@ -11,6 +11,7 @@ class statusChangeModel extends connection
        WHERE requestNo='.$requestNo.'  "  ;  
          
         return $this->runQuery($query);
+        
     }
 
 
