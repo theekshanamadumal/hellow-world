@@ -10,10 +10,19 @@
     <div class="container">
     <?php
     if(isset($_POST['submit'])){
-       $target_dir = "uploads/";
-	   $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
-	   $filename = $_FILES['fileToUpload']['name'];
-	   $size = $_FILES['fileToUpload']['size'];
+
+        $category=$_POST['Category'];
+        $NIC=$_POST['NIC'];
+        $description=$_POST['description'];
+
+        $filename = $_FILES['fileToUpload']['name'];
+        $size = $_FILES['fileToUpload']['size'];
+
+        $targetFileName=$NIC.$description;
+	    $target_file = "records/".$category."/".$targetFileName;
+	           
+       
+
        require_once 'controller/fileupload.ctrl.php';
        $fileupload = new fileupload();
        $message=$fileupload->file_upload($target_file);
@@ -22,9 +31,9 @@
     ?>
     
 
-        <form action="fileupload.admin.php">
+        <form action="fileupload.admin.php" method="post">
             <div class="form-group">
-                <label for="sel1">Category</label>
+                <label for="category">Category</label>
                 <select class="form-control" id="category">
                     <option value="01">01</option>
                     <option value="02">02</option>
@@ -54,8 +63,8 @@
 
             
 
-            <label for="myfile">Select files (Submit only in pdf form):</label>
-            <input type="file" id="myfile" name="myfile" multiple><br><br>
+            <label for="myfile">Upload the file (Submit only in pdf form):</label>
+            <input type="file" id="fileToUpload" name="fileToUpload" ><br><br>
             <button type="submit" class="btn btn-success">Upload</button>
 
 
