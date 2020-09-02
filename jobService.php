@@ -26,24 +26,20 @@
 
  <?php
     
-   $function="";
+
  
-   if(isset($_POST["request"])){
+   if(isset($_POST["upload"])){
+    
       include_once("controller/request.ctrl.php");
       $reqctrll=new requestCtrl();
       list($message,$status)=$reqctrll->checkAvaliability($jobType);
       
       if ($status=="success"){ 
-          //here $message = refernceNumber         
+          //here $message = referenceNumber         
           $function='popupFunction();';
-          $referenceNumber=$message;
-          
-                  
+          $referenceNumber=$message;       
 
-          if(isset($_POST["upload"])){
-            echo $referenceNumber=$message;      
                
-            
 
             list($message,$status)=$reqctrll->updateRequestTable($jobType,$_SESSION['loginID'],$referenceNumber);
             if ($status=="success"){ 
@@ -57,7 +53,7 @@
             }else{
                 echo $alertView->showAlert($message,$status);}
 
-            }
+            
             
 
 
@@ -82,7 +78,7 @@
 
 
 
- <div class="container-fluid">
+<div class="container-fluid">
     <div class="row">
         <div class="col-sm-2"></div>
         <div class="col-sm-8">
@@ -91,10 +87,7 @@
             ?>
         <div class="container">
         
-        <form action="" method="post">
-
-        <input type="submit" class="btn btn-primary" name="request" value="Request" ></input>
-        </form>
+        <button class="btn btn-primary" onclick="popupFunction()">Request</button>
         
         </div>
             

@@ -72,7 +72,7 @@ class requestCtrl{
         $massege="";
         $status="";
 
-        
+        $cn = new request();
         $put_result=$cn->putRequsts($var,$id,$newNo);
 
                    

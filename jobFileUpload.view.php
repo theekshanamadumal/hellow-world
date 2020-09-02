@@ -16,7 +16,7 @@
               <input type="file" id="fileToUpload[]" name="fileToUpload[]" multiple>
               </div>
               <br><br>
-              <input type='submit' name='upload' class='Confirm-btn btn btn-success' id="upload" value='Confirm' /> 
+              <input type="submit" name="upload" class=" btn btn-success" value="Confirm" ></input>
               <br><br>
           </div>                
         </form>
@@ -35,7 +35,7 @@
     document.querySelector(".popup").style.display="none";
     })
 
-    <?php echo $function ?>
+    
 
     
   </script>
