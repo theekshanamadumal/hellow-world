@@ -97,7 +97,7 @@ class userJobFileUploader{
 			$tempName=$fileList["tmp_name"][$fileCount];
 			$target_file=$filePath.'/'.$fileName;
 			list($message,$status)=$this->uploadFile($target_file,$size,$tempName,$fileName);
-			echo $status.'<br>';
+			return array($message,$status);
         
 
 
