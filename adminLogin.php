@@ -27,7 +27,7 @@ if   (isset($_POST['submit'])){
     <div class = "col"></div>
     <div class="col-md-auto ">    
     <div class="formcontainer  ">
-        <form action = 'adminLogin.php' method="POST">
+        <form action = 'adminLogin.php' method="POST" enctype="multipart/form-data">
         <div class="container">
             <label for="uname"><b>Admin ID</b> </label>
             <input name="user_name" type="text" placeholder="Enter Username">

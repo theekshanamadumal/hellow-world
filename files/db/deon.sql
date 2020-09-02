@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 01, 2020 at 11:02 AM
+-- Generation Time: Sep 02, 2020 at 07:43 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.6
 
@@ -93,6 +93,14 @@ CREATE TABLE `records` (
   `userID` varchar(12) NOT NULL,
   `date` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `records`
+--
+
+INSERT INTO `records` (`recordNo`, `recordType`, `recordName`, `userID`, `date`) VALUES
+(1, 3, '0', '555555555555', '2020-09-02'),
+(2, 5, '1', '555555555555', '2020-09-02');
 
 -- --------------------------------------------------------
 
@@ -242,6 +250,16 @@ ALTER TABLE `requesttypes`
 --
 ALTER TABLE `userdetails`
   ADD PRIMARY KEY (`ID`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `records`
+--
+ALTER TABLE `records`
+  MODIFY `recordNo` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
