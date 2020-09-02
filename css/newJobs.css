@@ -28,3 +28,9 @@
   box-shadow: 6px 6px 29px -4px rgba(0, 0, 0, 0.75);
   cursor: pointer;
 }
+
+.popup-form {
+  border: white;
+  align-items: left;
+  text-align: left;
+}
