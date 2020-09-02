@@ -1,7 +1,7 @@
 view job files <br>
 
 </a>
-
+ 
 
 <?php
 $jobNo=1;
