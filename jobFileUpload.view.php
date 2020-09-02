@@ -2,7 +2,7 @@
  <!-- Popup form to upload the required attachments for the request -->
  <div class="popup">
   <div class="popup-content">
-  <img src="img/close.jpg" alt="" class="close"> 
+  <img src="files/img/close.jpg" alt="" class="closebtn"> 
         <form class="popup-form" method='post'>
             
           <div class="container-fluid">
@@ -22,6 +22,7 @@
           </div>                 
 
         </form>
+        
   </div>
   
   </div>
@@ -37,7 +38,7 @@
     
     }    
 
-    document.querySelector(".close").addEventListener("click",function(){
+    document.querySelector(".closebtn").addEventListener("click",function(){
     document.querySelector(".popup").style.display="none";
     })
   </script>
