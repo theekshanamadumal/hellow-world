@@ -1,6 +1,6 @@
 view job files <br>
 
-
+</a>
 
 
 <?php
@@ -12,7 +12,10 @@ $dir = "files/jobFiles/".$jobNo;
 if (is_dir($dir)){
   if ($dh = opendir($dir)){
     while (($file = readdir($dh)) !== false){
-      echo "filename:" . $file . "<br>";
+
+      echo "     filename:<a href=   '$dir/$file'   > $dir/$file</a><br>        ";
+
+      
     }
     closedir($dh);
   }
