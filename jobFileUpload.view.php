@@ -1,25 +1,6 @@
 
  <!-- Popup form to upload the required attachments for the request -->
- <?php
- if(isset($_POST['upload'])){
-    
-    $filePath='files/jobFiles/'.$jobType;
-       
-    include_once"controller/fileupload.ctrl.php";
-    $fileSaver = new userJobFileUploader();
-    list($message,$status)=$fileSaver->saveFiles($_FILES['fileToUpload'],$filePath);
 
-
-
-    
- }
- 
- 
-?>
- 
- 
- 
- 
  <div class="popup">
   <div class="popup-content">
   <img src="files/img/close.jpg" alt="" class="closebtn" > 
@@ -35,7 +16,6 @@
               <input type="file" id="fileToUpload[]" name="fileToUpload[]" multiple>
               </div>
               <br><br>
-              <input type="hidden" name="requestNo" id="hidden" value=''>
               <input type='submit' name='upload' class='Confirm-btn btn btn-success' id="upload" value='Confirm' /> 
               <br><br>
           </div>                
@@ -54,4 +34,8 @@
     document.querySelector(".closebtn").addEventListener("click",function(){
     document.querySelector(".popup").style.display="none";
     })
+
+    <?php echo $function ?>
+
+    
   </script>
