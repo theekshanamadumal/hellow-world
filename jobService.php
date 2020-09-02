@@ -20,38 +20,57 @@
  <?php include_once("inc/Header.php"); 
  
  require_once 'alert.view.php';
- $alertView=new alert();
- 
+ $alertView=new alert(); 
  ?>
  <link rel="stylesheet" href="css/jobService.css">
 
-
-
-
-
-
-
-
-
-
-
  <?php
-    if(isset($_POST["request"])){
+    
+   $function="";
+ 
+   if(isset($_POST["request"])){
       include_once("controller/request.ctrl.php");
       $reqctrll=new requestCtrl();
-      list($massege,$status)=$reqctrll->checkAvaliability($jobType);
-      echo $alertView->showAlert($massege,$status);
-      if ($status=="success"){
-echo '
-    <script>
-    document.querySelector(".popup").style.display="flex";   
-    document.querySelector(".closebtn").addEventListener("click",function(){
-    document.querySelector(".popup").style.display="none";
-    </script>';
+      list($message,$status)=$reqctrll->checkAvaliability($jobType);
+      
+      if ($status=="success"){ 
+          //here $message = refernceNumber         
+          $function='popupFunction();';
+          $referenceNumber=$message;
+          
+                  
 
-       }else{
-        echo $alertView->showAlert($massege,$status);}
+          if(isset($_POST["upload"])){
+            echo $referenceNumber=$message;      
+               
+            
+
+            list($message,$status)=$reqctrll->updateRequestTable($jobType,$_SESSION['loginID'],$referenceNumber);
+            if ($status=="success"){ 
+            $filePath='files/jobFiles/'.$referenceNumber;
+       
+            include_once"controller/fileupload.ctrl.php";
+            $fileSaver = new userJobFileUploader();
+            list($message,$status)=$fileSaver->saveFiles($_FILES['fileToUpload'],$filePath);
+            echo $alertView->showAlert($message,$status);
+            
+            }else{
+                echo $alertView->showAlert($message,$status);}
+
+            }
+            
+
+
+              
+
+          }else{
+            echo $alertView->showAlert($message,$status);}
+         
+
+    
+
        }
+       
 
 ?>
 
@@ -71,9 +90,12 @@ echo '
                 include_once($filename);            
             ?>
         <div class="container">
+        
         <form action="" method="post">
+
         <input type="submit" class="btn btn-primary" name="request" value="Request" ></input>
         </form>
+        
         </div>
             
         </div>
@@ -91,7 +113,7 @@ echo '
 
  
  <?php include_once('inc/Footer.php'); ?>
- <?php// include_once('jobFileUpload.view.php'); ?>
+ <?php include_once('jobFileUpload.view.php'); ?>
     
 </body>
 </html>
