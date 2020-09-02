@@ -17,7 +17,7 @@
   border-radius: 5px;
   position: relative;
 }
-.close {
+.closebtn {
   position: absolute;
   width: 40px;
   height: 40px;
@@ -27,8 +27,11 @@
   border-radius: 50%;
   box-shadow: 6px 6px 29px -4px rgba(0, 0, 0, 0.75);
   cursor: pointer;
+  opacity: 0.5;
 }
-
+.closebtn:hover {
+  opacity: 1;
+}
 .popup-form {
   border: white;
   align-items: left;

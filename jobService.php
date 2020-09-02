@@ -4,25 +4,7 @@
             $filename="services/".$jobType.".php";
             
 
-            if(isset($_POST['Request'])){
-
-            
-            global $variable;
-            $variable = $jobType;
-
-            include_once("controller/request.ctrl.php");
-            $reqctrll=new requestCtrl();
-            list($massege,$status)=$reqctrll->requst($variable);
-        
-            require_once 'alert.view.php';
-        
-            $alertView=new alert();
-        
-            echo $alertView->showAlert($massege,$status);
-
-            }
 ?>
-
 
 
 
@@ -37,7 +19,25 @@
  <?php include_once("inc/Header.php"); ?>
  <link rel="stylesheet" href="css/jobService.css">
 
+<?php
+ if(isset($_POST['Confirm'])){
 
+            
+global $variable;
+$variable = $jobType;
+
+include_once("controller/request.ctrl.php");
+$reqctrll=new requestCtrl();
+list($massege,$status)=$reqctrll->requst($variable);
+
+require_once 'alert.view.php';
+
+$alertView=new alert();
+
+echo $alertView->showAlert($massege,$status);
+
+}
+?>
 
 
 
@@ -64,7 +64,7 @@
  <!-- Popup form to upload the required attachments for the request -->
  <div class="popup">
   <div class="popup-content">
-  <img src="img/close.jpg" alt="" class="close"> 
+  <img src="img/close.jpg" alt="" class="closebtn"> 
         <form class="popup-form" method='post'>
             
           <div class="container-fluid">
@@ -99,7 +99,7 @@
     
     }    
 
-    document.querySelector(".close").addEventListener("click",function(){
+    document.querySelector(".closebtn").addEventListener("click",function(){
     document.querySelector(".popup").style.display="none";
     })
   </script>
