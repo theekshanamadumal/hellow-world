@@ -50,18 +50,17 @@
                  ."</td><td class='column1'>".$row["description"]."</td>";
 
         $finishButton='<td> <form method="post"> 
-        <input type="hidden" name="requestNo" value='.$row["requestNo"].'>
+        
     
         <input type="submit" name="Finish"
-                class="btn btn-secondary " value="Finish" id='.$row["requestNo"].' )" /> </form></td></tr>';
+                class="btn btn-secondary " value="Finish" id='.$row["requestNo"].'  /> </form></td></tr>';
 
 
 
 
-        $resumeButton='<td> <form method="post"> 
-        <input type="hidden" name="requestNo" value='.$row["requestNo"].'>
-        <input type="submit" id="Resume"
-                class="btn btn-warning" value="Resume" /> </form></td></tr>';
+        $resumeButton='<td> 
+        
+        <button class="btn btn-warning" id='.$row["requestNo"].' onclick="myFunction('.$row["requestNo"].')">Resume</button></td></tr>';
              
         
         switch ($row["status"]) {
@@ -83,7 +82,6 @@
         </div>
   </div>
 
-  
 
     <?php
     }
@@ -101,9 +99,10 @@
             $ans=$uiButtonCtrl->finishButton($_POST["requestNo"]); 
            
         } 
-        else if(array_key_exists('Resume', $_POST)) { 
+        else if(array_key_exists('Confirm', $_POST)) { 
+          echo $_POST["requestNo"];
+          $uiButtonCtrl->resumeButton($_POST["requestNo"]);  
           
-          $ans=$uiButtonCtrl->resumeButton($_POST["requestNo"]);  
         } 
          
     ?> 
@@ -116,27 +115,42 @@
 <div class="popup">
   <div class="popup-content">
   <img src="img/close.jpg" alt="" class="close"> 
-        <form method='post'>
-           
-                  <h1>Request ID: 6</h1>
-                  <h1>Request Type: 13</h1>         
-                  <label for="myfile">Select files:</label>
-                  <input type="file" id="myfile" name="myfile" multiple><br><br>
-                  <input type='submit' name='Confirm' class='button' value='Confirm' />                  
+        <form class="popup-form" method='post'>
+            
+          <div class="container-fluid">
+              <div><label for="referenceNo">Refernce Number: </label> <p id="referenceNo"></p>
+              <p>Upload required Attachments</p> </div>
+              <div><label for="myfile">Select files:</label>
+              <input type="file" id="myfile" name="myfile" multiple>
+              </div>
+              <br><br>
+
+              <!--  -->
+              <input type="hidden" name="requestNo" id="hidden" value=''>
+              <input type='submit' name='Confirm' class='Confirm-btn btn btn-success' id="confirm" value='Confirm' /> 
+
+          </div>                 
 
         </form>
   </div>
   
   </div>
   <script>
-    document.getElementById("Resume").addEventListener("click",function(){
-      document.querySelector(".popup").style.display="flex";
-    })
+    function myFunction(requestNo){
+    var number = requestNo;
+    document.querySelector(".popup").style.display="flex";
+    document.getElementById("referenceNo").innerHTML=number;
+    
+    //changing the value of hidden to the requestNO
+    document.getElementById("hidden").value = number;
+    
+    }    
 
     document.querySelector(".close").addEventListener("click",function(){
-      document.querySelector(".popup").style.display="none";
+    document.querySelector(".popup").style.display="none";
     })
   </script>
+  
   </body>
 
 </html>
