@@ -20,7 +20,7 @@
 
 <ul style="list-style: none;">
 
-<?php $icon='<img src="img/msWord.png" alt="word File" width="10%"><span class="container p-3 my-3 bg-formcolor text-white applwidth">';?>
+<?php $icon='<img src="files/img/msWord.png" alt="word File" width="10%"><span class="container p-3 my-3 bg-formcolor text-white applwidth">';?>
 <br><br>
 
 <li><a href="files/applications/common35.docx"> <?php echo $icon;?> common 035 </a></span></li>

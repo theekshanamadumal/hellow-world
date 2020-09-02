@@ -23,7 +23,7 @@
         <div class="col-sm-4">
             <div class="right">
                 <div class="image"> 
-                    <img src="img/building.jpg" alt="">
+                    <img src="files/img/building.jpg" alt="">
                 </div>
                 <div>
                         <h1 class="text-header">කලාප අධ්‍යාපන කාර්යාලය නිකවැරටිය<br></h1>
