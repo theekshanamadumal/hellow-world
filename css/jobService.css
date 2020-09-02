@@ -37,3 +37,29 @@
   align-items: left;
   text-align: left;
 }
+
+/* Content Styling */
+.main-header {
+  margin-top: 8px;
+  text-align: center;
+  color: white;
+  padding: 5px;
+  background-color: #5ca0f2;
+  background-image: linear-gradient(315deg, #5ca0f2 10%, #f5f7f6 110%);
+  border-radius: 5px;
+}
+
+.sub-header {
+  text-align: center;
+  background-color: #6a93cb;
+  background-image: linear-gradient(315deg, #6a93cb 0%, #a4bfef 74%);
+  border-radius: 5px;
+  padding: 2px;
+  color: #fff;
+}
+
+.col-sm-8 .container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5px;
+}

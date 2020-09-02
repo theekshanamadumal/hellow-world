@@ -114,7 +114,7 @@
     
 <div class="popup">
   <div class="popup-content">
-  <img src="img/close.jpg" alt="" class="closebtn"> 
+  <img src="files/img/close.jpg" alt="" class="closebtn"> 
         <form class="popup-form" method='post'>
             
           <div class="container-fluid">

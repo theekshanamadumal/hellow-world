@@ -34,7 +34,6 @@
     </div> 
   </div>
   
-
 <?php include_once('inc/Footer.php'); ?>
 </body>
 </html>

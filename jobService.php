@@ -44,23 +44,26 @@ echo $alertView->showAlert($massege,$status);
  
  <div class="container-fluid">
     <div class="row">
-    <div class="col-sm-2"></div>
-    <div class="col-sm-8">
-        <?php
-            include_once($filename);            
-        ?>
-        <button class="btn btn-primary" onclick="popupFunction(<?php echo $jobType?>)">Request</button>  
-    </div>
-    <div class="col-sm-2">    
-         
-    </div>
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+            <?php
+                include_once($filename);            
+            ?>
+        <div class="container">
+        <button class="btn btn-primary" onclick="popupFunction(<?php echo $jobType?>)" >Request</button>
+        </div>
+            
+        </div>
+        <div class="col-sm-2"></div>
+    
     </div>
     
 </div>
 
- <?php include_once('inc/jobFileUpload.view.php'); ?>
- <?php include_once('inc/Footer.php'); ?>
 
+ 
+ <?php include_once('inc/Footer.php'); ?>
+ <?php include_once('jobFileUpload.view.php'); ?>
     
 </body>
 </html>

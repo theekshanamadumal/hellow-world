@@ -1,0 +1,43 @@
+.heading {
+  margin-top: 8px;
+  text-align: center;
+  color: white;
+  padding: 5px;
+  background-color: #5ca0f2;
+  background-image: linear-gradient(315deg, #5ca0f2 10%, #f5f7f6 110%);
+  border-radius: 5px;
+}
+.intro {
+  padding: 5px;
+}
+
+.service-list {
+  border-style: outset;
+  margin-bottom: 5px;
+}
+ul {
+  list-style-type: none;
+}
+.service-list li {
+  margin-bottom: 10px;
+}
+
+.service-list a {
+  display: inline-block;
+  color: #000;
+  text-decoration: none;
+}
+
+.service-list a::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #000;
+  transition: width 0.3s;
+}
+
+.service-list a:hover::after {
+  width: 100%;
+  transition: width 0.3s;
+}
