@@ -114,7 +114,7 @@
     
 <div class="popup">
   <div class="popup-content">
-  <img src="img/close.jpg" alt="" class="close"> 
+  <img src="img/close.jpg" alt="" class="closebtn"> 
         <form class="popup-form" method='post'>
             
           <div class="container-fluid">
@@ -146,7 +146,7 @@
     
     }    
 
-    document.querySelector(".close").addEventListener("click",function(){
+    document.querySelector(".closebtn").addEventListener("click",function(){
     document.querySelector(".popup").style.display="none";
     })
   </script>

@@ -4,25 +4,7 @@
             $filename="services/".$jobType.".php";
             
 
-            if(isset($_POST['Request'])){
-
-            
-            global $variable;
-            $variable = $jobType;
-
-            include_once("controller/request.ctrl.php");
-            $reqctrll=new requestCtrl();
-            list($massege,$status)=$reqctrll->requst($variable);
-        
-            require_once 'alert.view.php';
-        
-            $alertView=new alert();
-        
-            echo $alertView->showAlert($massege,$status);
-
-            }
 ?>
-
 
 
 
@@ -36,6 +18,29 @@
 <body>
  <?php include_once("inc/Header.php"); ?>
  <link rel="stylesheet" href="css/jobService.css">
+
+<?php
+ if(isset($_POST['Confirm'])){
+
+            
+global $variable;
+$variable = $jobType;
+
+include_once("controller/request.ctrl.php");
+$reqctrll=new requestCtrl();
+list($massege,$status)=$reqctrll->requst($variable);
+
+require_once 'alert.view.php';
+
+$alertView=new alert();
+
+echo $alertView->showAlert($massege,$status);
+
+}
+?>
+
+
+
  
  <div class="container-fluid">
     <div class="row">
