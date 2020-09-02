@@ -7,34 +7,46 @@
 </head>
 <body>
 <?php include_once("inc/Header.php"); ?>
-    <div class="container">
-    <?php
-    if(isset($_POST['submit'])){
+<br>
+ 
 
-        $category=$_POST['Category'];
-        $NIC=$_POST['NIC'];
-        $description=$_POST['description'];
+<?php
+    if(isset($_POST['upload'])){
+        
+        if (isset($_POST['NIC'])    ){
+            
+            $category=$_POST['category'];
+            $NIC=$_POST['NIC'];
+            $description=$_POST['description'];
 
-        $filename = $_FILES['fileToUpload']['name'];
-        $size = $_FILES['fileToUpload']['size'];
+            $file = $_FILES['fileToUpload'];
+     
+            require_once 'controller/fileupload.ctrl.php';
+            $fileupload = new fileuploader();
+            list($message, $status)=$fileupload->uploadFile($file,$category,$NIC,$description);
+        }
+        else{
+             $message='please insert all information.';
+             $status="info";
+        }
+        
+        require_once 'alert.view.php';
+        $alertView=new alert();
+        echo $alertView->showAlert($message,$status);
+    
+    }
+?>
 
-        $targetFileName=$NIC.$description;
-	    $target_file = "records/".$category."/".$targetFileName;
-	           
-       
 
-       require_once 'controller/fileupload.ctrl.php';
-       $fileupload = new fileupload();
-       $message=$fileupload->file_upload($target_file);
-       echo $message;
-          }
-    ?>
+<div class="container">
+    
     
 
-        <form action="fileupload.admin.php" method="post">
+        <form action="fileupload.admin.php" method="post"  enctype="multipart/form-data">
             <div class="form-group">
-                <label for="category">Category</label>
-                <select class="form-control" id="category">
+                <!--label for="category">Record Category</label-->
+                <select class="form-control" name="category">
+                    <option >Record Category</option>
                     <option value="01">01</option>
                     <option value="02">02</option>
                     <option value="03">03</option>
@@ -52,20 +64,21 @@
             </div>
 
             <div class="form-group">
-                <label for="inputdefault">NIC number</label>
-                <input class="form-control" id="NIC" type="text">
+                <!--label for="inputdefault">NIC number</label>
+                <input class="form-control" name="NIC" id="NIC" type="text"-->
+                <input class="form-control" name="NIC" type="text" placeholder="NIC Number" >
             </div>
 
             <div class="form-group">
-                <label for="inputdefault">Description</label>
-                <input class="form-control" id="description" type="text">
+                <!--label for="inputdefault">Description</label>
+                <input class="form-control" name="description" id="description" type="text"-->
+                <input class="form-control" name="description" type="text" placeholder="description" >
             </div>
 
+            <!--label for="myfile">Upload the file (Submit only in pdf form):</label-->
+            <input type="file"  name="fileToUpload"  id="fileToUpload" ><br><br>
             
-
-            <label for="myfile">Upload the file (Submit only in pdf form):</label>
-            <input type="file" id="fileToUpload" name="fileToUpload" ><br><br>
-            <button type="submit" class="btn btn-success">Upload</button>
+            <button name='upload'type="submit" class="btn btn-success">Upload</button>
 
 
         </form> 
