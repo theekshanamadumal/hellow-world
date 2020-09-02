@@ -7,58 +7,104 @@
 </head>
 <body>
 <?php include_once("inc/Header.php"); ?>
-<link rel="stylesheet" href="css/pendingJobs.css">
+<link rel="stylesheet" href="css/newJobs.css">
+<?php
 
 
-<!-- Search Bar -->
-
-    <div class="row">
-        <div class="col-sm-8"> </div>
-        <div class="col-sm-4"> 
-            <div class="search-bar"><input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search..."></div>
-        </div>
-    </div>
-<!-- Table-->
-<div>
-    <div class='table-responsive'>
-        <table id="tablePreview" class="table table-hover table-striped">
-            <thead>
-                <tr>
-                    <th>Request #</th>
-                    <th>Request ID</th>
-                    <th>Request Type</th>
-                    <th>User ID</th>
-                    <th>Description </th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                <tr>
-                    <th>1</th>
-                    <td>2</td>
-                    <td>2</td>
-                    <td>2</td>
-                    <td>2</td>
-                    <td>2</td>
-
-                    
-                
-                
-                </tr>
-
-
-            </tbody>
-        </table>
-    
-    </div>
+error_reporting(E_ALL);
+require_once 'controller/adminJob.ctrl.php';
+//$loginId=$_SESSION['loginID'];
+$adctrll=new adminTableControl();
+$var="pending";
+$result=$adctrll-> requestHistory($var);
+if ($adctrll->hasJobsSubmitted($result)) {?>
+      <div class="row">
+<div class="col-sm-8"> </div>
+<div class="col-sm-4"> 
+        <div class="search-bar"><input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search..."></div>
+</div>
 </div>
 
 
+        <div>
+        <div class='table-responsive'>
+ <!--Table-->
+ <table id="tablePreview" class="table table-hover table-striped">
+ <!--Table head-->
+   <thead>
+     <tr>
+       <th>Request #</th>
+       <th>Request ID</th>
+       <th>Request Type</th>
+       <th>User ID</th>
+       <th>Description</th>
+       <th></th>
+       
+     </tr>
+   </thead>
+   <!--Table head-->
+   <!--Table body-->
+   <tbody>
+   <?php
+
+while ($row=$adctrll->fetchData($result)){
+  $rowdata= "<tr><td class='column1'>" .$row["requestNo"]
+           ."</td><td class='column1'>".$row["requestId"]
+           ."</td><td class='column1'>type  ".$row["requestId"]
+           ."</td><td class='column1'>".$row["userId"]
+           ."</td><td class='column1'>".$row["description"]."</td>";
+
+ 
+
+  $ongoingButton='<td> <form method="post"> 
+  <input type="hidden" name="requestNo" value='.$row["requestNo"].'>
+  <input type="submit" name="Ongoing"
+          class="btn btn-success" value="Ongoing" /> </form></td>';
+       
+          $completeButton='<td> <form method="post"> 
+          <input type="hidden" name="requestNo" value='.$row["requestNo"].'>
+          <input type="submit" name="Complete"
+                  class="btn btn-success" value="Complete" /> </form></td></tr>';
+  
+      echo $rowdata,$ongoingButton,$completeButton;
+  
+}
+
+     
+     
+     ?>
+   </tbody>
+   <!--Table body-->
+ </table>
+ <!--Table-->
+</div>
+        </div>
+    </div>
+    <?php
+    }
+    else   echo "No Jobs Submitted Yet";
+    
+    ?>
+
+<?php
+        $adButtonCtrl= new adButtonControl();
+
+        if(array_key_exists('Ongoing', $_POST)) { 
+          
+          
+            $adButtonCtrl->proceedButton1($_POST["requestNo"]); 
+        }
+        elseif(array_key_exists('Complete', $_POST)) { 
+          
+          
+            $adButtonCtrl->CompleteButton($_POST["requestNo"]); 
+        } 
+       
+         
+    ?> 
 
 
 <?php include_once('inc/Footer.php'); ?> 
+    
 </body>
-
-
 </html>
