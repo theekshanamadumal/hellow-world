@@ -24,7 +24,7 @@
                 <h1>File System</h1>
                 <p>This feature is enabled for you to access files, forms, transcripts, certificates, copys etc. related to you currently exsisting in our file system.</p>
                 <div class= "btns">
-                <button class="btn btn-1" onclick="location.href='#';" style="cursor: pointer;">Access File System</button>
+                <button class="btn btn-1" onclick="location.href='recordsAccess.user.php';" style="cursor: pointer;">Access File System</button>
                 
                 </div>
         </div>

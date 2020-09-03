@@ -61,6 +61,14 @@ class adButtonControl{
         return $statusChange->  changeStatus($requestNo,"finished");
         
     }
+
+    public function Changedescription($requestNo,$description)
+    {
+        
+        $statusChange= new statusChangeModel();
+        return $statusChange->  addDescription($requestNo,$description);
+        
+    }
     
 
 }

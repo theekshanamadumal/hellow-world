@@ -10,5 +10,15 @@ class statusChangeModel extends connection
         return $this->runQuery($query);
     }
 
+    public function addDescription($requestNo,$description){
+        echo $description;
+        echo $requestNo;
+
+       $query= "UPDATE requestslist SET description= '{$description}'
+       WHERE requestNo='{$requestNo}'  "  ;  
+         
+        return $this->runQuery($query);
+    }
+
 
 }
