@@ -96,7 +96,7 @@ while ($row=$adctrll->fetchData($result)){
           
           $function='popupFunction2();';
             $adButtonCtrl->proceedButton2($_POST["requestNo"]); 
-            $adButtonCtrl->Changedescription($_POST["requestNo"],$_POST["Description"]); 
+            $adButtonCtrl->Changedescription($_POST["requestNo"],$_POST["Description2"]); 
         } 
        
          
@@ -115,8 +115,8 @@ while ($row=$adctrll->fetchData($result)){
           <div class="container-fluid">
               
               <div>
-              <p>Add new Description</p>
-              <input name="Description" type="text" >
+              <p>Add new Description2</p>
+              <input name="Description2" type="text" >
               </div>
               <br><br>
               <input type="hidden" name="requestNo" id="hidden" value=''>
@@ -129,6 +129,7 @@ while ($row=$adctrll->fetchData($result)){
 
 <!-- Script function to enable popup container-->
   <script>
+      //document.write("hii");
     function popupFunction2(requestNo){
     var number = requestNo;
     document.querySelector(".popup").style.display="flex";
@@ -136,6 +137,8 @@ while ($row=$adctrll->fetchData($result)){
     
     //changing the value of hidden to the requestNO
     document.getElementById("hidden").value = number;
+    document.getElementById("id").name = "upload2";
+    //document.write(document.getElementById("id").name);
     
     }    
 
