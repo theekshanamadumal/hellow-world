@@ -58,7 +58,7 @@ while ($row=$adctrll->fetchData($result)){
 
  
 
-           $pendingButton='<td> <button class="btn btn-warning" id='.$row["requestNo"].' onclick="popupFunction('.$row["requestNo"].')">Pause</button></td>';
+           $pendingButton='<td> <button class="btn btn-warning" id='.$row["requestNo"].' onclick="popupFunction2('.$row["requestNo"].')">Pause</button></td>';
        
           $completeButton='<td> <button class="btn btn-success" id='.$row["requestNo"].' onclick="popupFunction('.$row["requestNo"].')">Complete</button></td></tr>';
   
@@ -92,9 +92,9 @@ while ($row=$adctrll->fetchData($result)){
             $adButtonCtrl->CompleteButton($_POST["requestNo"]); 
             $adButtonCtrl->Changedescription($_POST["requestNo"],$_POST["Description"]); 
         } 
-        elseif(array_key_exists('upload', $_POST)) { 
+        elseif(array_key_exists('upload2', $_POST)) { 
           
-          $function='popupFunction();';
+          $function='popupFunction2();';
             $adButtonCtrl->proceedButton2($_POST["requestNo"]); 
             $adButtonCtrl->Changedescription($_POST["requestNo"],$_POST["Description"]); 
         } 
@@ -105,6 +105,48 @@ while ($row=$adctrll->fetchData($result)){
 
 <?php include_once('inc/Footer.php'); ?> 
 <?php include_once('addDescription.view.php'); ?>
+
+ <!-- Popup form to upload the required attachments for the request -->
+
+ <div class="popup">
+  <div class="popup-content">
+  <img src="files/img/close.jpg" alt="" class="closebtn" > 
+        <form class="popup-form" method='post' multiple="multiple" enctype="multipart/form-data">
+          <div class="container-fluid">
+              
+              <div>
+              <p>Add new Description</p>
+              <input name="Description" type="text" >
+              </div>
+              <br><br>
+              <input type="hidden" name="requestNo" id="hidden" value=''>
+              <input type="submit" name="upload2" class=" btn btn-success" value="Save" ></input>
+              <br><br>
+          </div>                
+        </form>
+  </div>
+  </div>
+
+<!-- Script function to enable popup container-->
+  <script>
+    function popupFunction2(requestNo){
+    var number = requestNo;
+    document.querySelector(".popup").style.display="flex";
+    //document.getElementById("referenceNo").innerHTML=number;
+    
+    //changing the value of hidden to the requestNO
+    document.getElementById("hidden").value = number;
+    
+    }    
+
+    document.querySelector(".closebtn").addEventListener("click",function(){
+    document.querySelector(".popup").style.display="none";
+    })
+
+    
+
+    
+  </script>
     
 </body>
 </html>
