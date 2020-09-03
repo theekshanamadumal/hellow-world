@@ -28,6 +28,7 @@
 }
 
 .left .container:hover {
+  font-weight: 600;
   opacity: 1;
   -webkit-transform: scale(1.2);
   -ms-transform: scale(1.2);
@@ -42,6 +43,6 @@
   opacity: 0.7;
 }
 
-.home-text-paragragh{
+.home-text-paragragh {
   font-size: 1.2em;
 }

@@ -38,6 +38,8 @@ if ($adctrll->hasJobsSubmitted($result)) {?>
        <th>Request Type</th>
        <th>User ID</th>
        <th>Description</th>
+       <th>Add Description</th>
+       <th>Add Description</th>
        <th></th>
        
      </tr>
@@ -58,11 +60,13 @@ while ($row=$adctrll->fetchData($result)){
 
            $pendingButton='<td> <form method="post"> 
            <input type="hidden" name="requestNo" value='.$row["requestNo"].'>
-           <input type="submit" name="Pending"
-                   class="btn btn-success" value="Pending" /> </form></td>';
+           <input name="Description" type="text" >
+           <input type="submit" name="Pause"
+                   class="btn btn-warning" value="Pause" /> </form></td>';
        
           $completeButton='<td> <form method="post"> 
           <input type="hidden" name="requestNo" value='.$row["requestNo"].'>
+          <input name="Description" type="text" >
           <input type="submit" name="Complete"
                   class="btn btn-success" value="Complete" /> </form></td></tr>';
   
@@ -94,11 +98,13 @@ while ($row=$adctrll->fetchData($result)){
           
           
             $adButtonCtrl->CompleteButton($_POST["requestNo"]); 
+            $adButtonCtrl->Changedescription($_POST["requestNo"],$_POST["Description"]); 
         } 
-        elseif(array_key_exists('Pending', $_POST)) { 
+        elseif(array_key_exists('Pause', $_POST)) { 
           
           
             $adButtonCtrl->proceedButton2($_POST["requestNo"]); 
+            $adButtonCtrl->Changedescription($_POST["requestNo"],$_POST["Description"]); 
         } 
        
          
