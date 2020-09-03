@@ -38,6 +38,8 @@ if ($adctrll->hasJobsSubmitted($result)) {?>
        <th>Request Type</th>
        <th>User ID</th>
        <th>Description</th>
+       <th>Resume</th>
+       <th>Add Description</th>
        <th></th>
        
      </tr>
@@ -58,11 +60,12 @@ while ($row=$adctrll->fetchData($result)){
 
   $ongoingButton='<td> <form method="post"> 
   <input type="hidden" name="requestNo" value='.$row["requestNo"].'>
-  <input type="submit" name="Ongoing"
-          class="btn btn-success" value="Ongoing" /> </form></td>';
+  <input type="submit" name="Resume"
+          class="btn btn-warning" value="Resume" /> </form></td>';
        
           $completeButton='<td> <form method="post"> 
           <input type="hidden" name="requestNo" value='.$row["requestNo"].'>
+          <input name="Description" type="text" >
           <input type="submit" name="Complete"
                   class="btn btn-success" value="Complete" /> </form></td></tr>';
   
@@ -89,7 +92,7 @@ while ($row=$adctrll->fetchData($result)){
 <?php
         $adButtonCtrl= new adButtonControl();
 
-        if(array_key_exists('Ongoing', $_POST)) { 
+        if(array_key_exists('Resume', $_POST)) { 
           
           
             $adButtonCtrl->proceedButton1($_POST["requestNo"]); 
@@ -98,6 +101,7 @@ while ($row=$adctrll->fetchData($result)){
           
           
             $adButtonCtrl->CompleteButton($_POST["requestNo"]); 
+            $adButtonCtrl->Changedescription($_POST["requestNo"],$_POST["Description"]); 
         } 
        
          
