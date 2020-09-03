@@ -4,7 +4,8 @@ class fileuploader{
 
 	public function uploadFile($file,$category,$NIC,$description)
     {
-		$targetFileName=$NIC.'-'.$description;
+		$extension=(pathinfo($file['name'],PATHINFO_EXTENSION));
+		$targetFileName=$NIC.'-'.$description.'.'.$extension;
 		$target_file = "files/records/".$category."/".$targetFileName;
 
 		list($message,$status)=$this->saveFile($file,$target_file);
