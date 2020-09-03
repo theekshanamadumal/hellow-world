@@ -42,7 +42,7 @@ if (session_status() == PHP_SESSION_NONE) {
      </ul>
      <ul class="nav navbar-nav navbar-right" id="myNavbar">
           
-          <?php if(!isset($_SESSION['loginID'])) {?>
+          <?php if(!(isset($_SESSION['loginID']) or isset($_SESSION['adminID']) )) {                                 ?>
             <li class="nav-item active">
               <a class="nav-link" href="newAccount.php">Register&nbsp;</a>
             </li>
@@ -52,7 +52,12 @@ if (session_status() == PHP_SESSION_NONE) {
             
           <?php } else {?>
             <li class="nav-item active"><a class="nav-link" href=<?php  echo $_SESSION['uI'] ?>>
-            <?php echo $_SESSION['loginID'];?></a></li>
+            <?php if(isset($_SESSION['loginID'])){
+                  echo $_SESSION['loginID'];
+
+            }else{
+              echo $_SESSION['adminID'];
+            } ?></a></li>
             <li class="nav-item active"><a class="nav-link" href="controller/logout.ctrl.php">Logout</a></li>
           <?php }?>
       </ul>

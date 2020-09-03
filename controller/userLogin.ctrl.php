@@ -7,7 +7,7 @@ class loginCtrl{
     public $massege;
     public $status;
 
-    public function log($table,$PswrdColumn,$username,$givenPassword,$destination){
+    public function log($table,$PswrdColumn,$username,$givenPassword,$destination,$loginType){
         $this->username=$username;
         $this->table=$table;
         if($this->username!=null and $givenPassword!=null){
@@ -19,7 +19,14 @@ class loginCtrl{
                 $user_id =$details['ID'];
 
                 if ($password==$givenPassword and $user_id==$username) {
-                    $this->makeSession($destination,$user_id);
+                    session_destroy();
+                    session_start();
+
+                    if ($loginType=="user") {
+                        $this->makeUserSession($destination,$user_id);
+                    }else{
+                        $this->makeAdminSession($destination,$user_id);
+                    }                   
                     $massege= "<hr>LOGIN SUCCESSED!";
                     $status="success";
                 }
@@ -37,12 +44,19 @@ class loginCtrl{
         return array($massege,$status);
     }
 
-    private function makeSession($destination,$user_id){
+    private function makeUserSession($destination,$user_id){
             $_SESSION['loginID'] = $user_id;
             $_SESSION['uI']=$destination;
 
             header("location:{$destination}");
             //die;
-    }   
+    }
+    private function makeAdminSession($destination,$user_id){
+        $_SESSION['adminID'] = $user_id;
+        $_SESSION['uI']=$destination;
+
+        header("location:{$destination}");
+        //die;
+}      
 }             
 ?>
