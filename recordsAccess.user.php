@@ -12,16 +12,18 @@
 <link rel="stylesheet" href="css/jobService.css">
 <link rel="stylesheet" href="css/jobService.css">
 <?php
-    if(isset($_SESSION['loginID'])) {?>
+    if(isset($_SESSION['loginID'])) {
     
-<?php
-    echo$_POST['category'];
     if (isset($_POST['category'])){
+        
         $userId=$_SESSION['loginID'];
         include_once('controller/recordAccess.ctrl.php');
         $recordViewer=new recordViewer();
         $result=$recordViewer->viewRecords($userId);
         echo $result;
+
+        $message='selected category is : ' .$_POST['category'];;
+        $status='info';
        
          
     }
@@ -61,6 +63,7 @@
                     <option value="13">13</option>
                 </select>
         </span>
+        <button name='upload'type="submit" class="btn btn-success">Upload</button>
         </form>
 
 
