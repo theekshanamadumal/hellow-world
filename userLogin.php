@@ -16,7 +16,7 @@ if   (isset($_POST['submit'])){
     require_once 'alert.view.php';
     $loginctrll=new loginCtrl();
     $alertView=new alert();
-    list($massege, $status)=$loginctrll->log($table,$PswrdColumn,$username,$givenPassword,$destination);
+    list($massege, $status)=$loginctrll->log($table,$PswrdColumn,$username,$givenPassword,$destination,"user");
     echo $alertView->showAlert($massege,$status);
     
 }
