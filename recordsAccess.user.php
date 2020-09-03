@@ -11,39 +11,15 @@
 <?php require_once'inc/Header.php';?>
 <link rel="stylesheet" href="css/jobService.css">
 <link rel="stylesheet" href="css/jobService.css">
-<?php
-    if(isset($_SESSION['loginID'])) {
+
+<div class='container'>
+<div class='row'>
+<div class="col-sm-3"></div>
+<div class="col-sm-6">
+<br><br>
+<form method="POST" action="recordsAccess.user.php" style="border: none;">
     
-    if (isset($_POST['category'])){
-        
-        $userId=$_SESSION['loginID'];
-        include_once('controller/recordAccess.ctrl.php');
-        $recordViewer=new recordViewer();
-        $result=$recordViewer->viewRecords($userId);
-        echo $result;
-
-        $message='selected category is : ' .$_POST['category'];;
-        $status='info';
-       
-         
-    }
-    else{
-        $message='select the record category';
-        $status='info';
-    }
-    require_once 'alert.view.php';
-    $alertView=new alert();
-    echo $alertView->showAlert($message,$status);
-
-
-    }
-    else{
-        $function='popupFunction();';    
-    }
-?>
-
-        <form method="POST" action="recordsAccess.user.php">
-        <span class="form-group">
+        <p class="form-group">
                 <label for="category">Record Category</label>
                 <select class="form-control" name="category">
                       
@@ -62,17 +38,54 @@
                     <option value="12">12</option>
                     <option value="13">13</option>
                 </select>
-        </span>
-        <button name='upload'type="submit" class="btn btn-success">Upload</button>
-        </form>
+        </p>
+        <p><button name='upload'type="submit" class="btn btn-success">Search</button></p>
+    
+    
+        
+</form>
 
 
+
+
+
+<?php
+    if(isset($_SESSION['loginID'])) {
+    
+    if (isset($_POST['category'])){
+
+        $message='action failed';
+        $status='warning';
+        
+        $userId=$_SESSION['loginID'];
+        $category=$_POST['category'];
+        include_once('controller/recordAccess.ctrl.php');
+        $recordViewer=new recordViewer();
+        list($message,$status)=$recordViewer->viewRecords($userId,$category);
+              
+    }
+    else{
+        $message='select the record category';
+        $status='info';
+    }
+    require_once 'alert.view.php';
+    $alertView=new alert();
+    echo $alertView->showAlert($message,$status);
+
+    }
+    else{
+        $function='popupFunction();';    
+    }
+?>
+
+       
+</div>
+<div class="col-sm-3"></div>
+</div>
+</div>
 <?php 
 include_once('inc/Footer.php');
 include_once('inc/popUp.view.php');
-
 ?>
-
-
 </body>
 </html>

@@ -11,10 +11,9 @@ $dir = "files/jobFiles/".$jobNo.'/';
 // Open a directory, and read its contents
 if (is_dir($dir)){
   if ($dh = opendir($dir)){
-    while (($file = readdir($dh)) !== false){
+     while (($file = readdir($dh)) !== false){
 
       echo "     filename:<a href=   '$dir$file'   > $dir$file</a><br>        ";
-
       
     }
     closedir($dh);
