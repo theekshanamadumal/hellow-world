@@ -39,7 +39,7 @@ if ($adctrll->hasJobsSubmitted($result)) {?>
        <th>User ID</th>
        <th>Description</th>
        <th>Resume</th>
-       <th>Add Description</th>
+       <th>Complete</th>
        <th></th>
        
      </tr>
@@ -48,6 +48,8 @@ if ($adctrll->hasJobsSubmitted($result)) {?>
    <!--Table body-->
    <tbody>
    <?php
+
+   
 
 while ($row=$adctrll->fetchData($result)){
   $rowdata= "<tr><td class='column1'>" .$row["requestNo"]
@@ -63,11 +65,7 @@ while ($row=$adctrll->fetchData($result)){
   <input type="submit" name="Resume"
           class="btn btn-warning" value="Resume" /> </form></td>';
        
-          $completeButton='<td> <form method="post"> 
-          <input type="hidden" name="requestNo" value='.$row["requestNo"].'>
-          <input name="Description" type="text" >
-          <input type="submit" name="Complete"
-                  class="btn btn-success" value="Complete" /> </form></td></tr>';
+          $completeButton='<td> <button class="btn btn-success" id='.$row["requestNo"].' onclick="popupFunction('.$row["requestNo"].')">Complete</button></td></tr>';
   
       echo $rowdata,$ongoingButton,$completeButton;
   
@@ -97,9 +95,10 @@ while ($row=$adctrll->fetchData($result)){
           
             $adButtonCtrl->proceedButton1($_POST["requestNo"]); 
         }
-        elseif(array_key_exists('Complete', $_POST)) { 
+        elseif(array_key_exists('upload', $_POST)) { 
           
-          
+         // $function='popupFunction();';
+             //echo $_POST["requestNo"];
             $adButtonCtrl->CompleteButton($_POST["requestNo"]); 
             $adButtonCtrl->Changedescription($_POST["requestNo"],$_POST["Description"]); 
         } 
@@ -109,6 +108,7 @@ while ($row=$adctrll->fetchData($result)){
 
 
 <?php include_once('inc/Footer.php'); ?> 
+<?php include_once('addDescription.view.php'); ?>
     
 </body>
 </html>

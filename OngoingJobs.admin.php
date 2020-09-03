@@ -58,17 +58,9 @@ while ($row=$adctrll->fetchData($result)){
 
  
 
-           $pendingButton='<td> <form method="post"> 
-           <input type="hidden" name="requestNo" value='.$row["requestNo"].'>
-           <input name="Description" type="text" >
-           <input type="submit" name="Pause"
-                   class="btn btn-warning" value="Pause" /> </form></td>';
+           $pendingButton='<td> <button class="btn btn-warning" id='.$row["requestNo"].' onclick="popupFunction('.$row["requestNo"].')">Pause</button></td>';
        
-          $completeButton='<td> <form method="post"> 
-          <input type="hidden" name="requestNo" value='.$row["requestNo"].'>
-          <input name="Description" type="text" >
-          <input type="submit" name="Complete"
-                  class="btn btn-success" value="Complete" /> </form></td></tr>';
+          $completeButton='<td> <button class="btn btn-success" id='.$row["requestNo"].' onclick="popupFunction('.$row["requestNo"].')">Complete</button></td></tr>';
   
       echo $rowdata,$pendingButton,$completeButton;
   
@@ -94,15 +86,15 @@ while ($row=$adctrll->fetchData($result)){
         $adButtonCtrl= new adButtonControl();
 
        
-        if(array_key_exists('Complete', $_POST)) { 
+        if(array_key_exists('upload', $_POST)) { 
           
-          
+          $function='popupFunction();';
             $adButtonCtrl->CompleteButton($_POST["requestNo"]); 
             $adButtonCtrl->Changedescription($_POST["requestNo"],$_POST["Description"]); 
         } 
-        elseif(array_key_exists('Pause', $_POST)) { 
+        elseif(array_key_exists('upload', $_POST)) { 
           
-          
+          $function='popupFunction();';
             $adButtonCtrl->proceedButton2($_POST["requestNo"]); 
             $adButtonCtrl->Changedescription($_POST["requestNo"],$_POST["Description"]); 
         } 
@@ -112,6 +104,7 @@ while ($row=$adctrll->fetchData($result)){
 
 
 <?php include_once('inc/Footer.php'); ?> 
+<?php include_once('addDescription.view.php'); ?>
     
 </body>
 </html>
