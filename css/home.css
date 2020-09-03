@@ -25,14 +25,21 @@
 
 .left .container {
   opacity: 0.8;
+  font-weight: 600;
 }
 
 .left .container:hover {
-  font-weight: 600;
+  font-weight: 700;
   opacity: 1;
   -webkit-transform: scale(1.2);
   -ms-transform: scale(1.2);
   transform: scale(1.2);
+  text-shadow: -1px -1px 0 gray, 1px -1px 0 gray, -1px 1px 0 gray,
+    1px 1px 0 gray;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
 }
 
 .right img {
