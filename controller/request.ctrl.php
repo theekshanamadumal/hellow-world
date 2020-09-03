@@ -57,7 +57,7 @@ class requestCtrl{
 
             else{
                 
-                $massege="Must be logged in order to submit request. <br> <a href='userLogin.php'>Login Here</a>";
+                $massege="Must be logged in as a user inorder to submit request. <br> <a href='userLogin.php'>Login Here</a>";
                 $status="warning";
               }
         
