@@ -86,7 +86,11 @@ class fileuploader{
 class userJobFileUploader{
 
 	public function saveFiles($fileList,$filePath)
-	{ 
+	{ if(!$this->is_files_choosen($fileList)){
+		$message = "No files have been selected";
+		$status="warning";
+		return array($message,$status);}
+	else{
 		if (!file_exists($filePath)){
 			mkdir($filePath);
 		}
@@ -97,10 +101,7 @@ class userJobFileUploader{
 			$tempName=$fileList["tmp_name"][$fileCount];
 			$target_file=$filePath.'/'.$fileName;
 			list($message,$status)=$this->uploadFile($target_file,$size,$tempName,$fileName);
-			return array($message,$status);
-        
-
-
+			return array($message,$status);}
 
 			echo $fileList['name'][$fileCount].'<br>';
 			$fileCount++;
@@ -109,12 +110,14 @@ class userJobFileUploader{
 
        
    
-	}
+	} 
 
 	public function uploadFile($target_file,$size,$tempName,$fileName)
-	{
+	{  
+
+		
 		if (file_exists($target_file)) {
-			$message = "Sorry, file already exists.";
+			$message = "Sorry, file alreadys exists.";
 			$status="warning";
 		  }
 
@@ -140,6 +143,14 @@ class userJobFileUploader{
 		  
 		}
 		return array($message,$status);
+	}
+
+	public function is_files_choosen()
+    {
+        if(!isset($fileList) || $fileList['error'][0] == UPLOAD_ERR_NO_FILE) {
+            return true;
+        }
+        else return false;
 	}
 
 }

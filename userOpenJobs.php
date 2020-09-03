@@ -7,60 +7,93 @@
 
   </head>
   <body>
-  <?php include_once("inc/Header.php"); ?>
+
+  <?php include_once("inc/Header.php");
+         
+         require_once 'controller/userJob.ctrl.php';
+          $loginId=$_SESSION['loginID'];
+  
+        $uiButtonCtrl= new uiButtonControl();
+
+        if(array_key_exists('Finish', $_POST)) {       
+          
+            $uiButtonCtrl->finishButton($_POST["requestNo"]); 
+           
+        } 
+        else if(array_key_exists('Confirm', $_POST)) { 
+         
+
+          $filePath='files/jobFiles/'.$_POST["requestNo"];
+          
+          include_once"controller/fileupload.ctrl.php";
+          require_once 'alert.view.php';
+          $alertView=new alert();
+
+          $addFiles= new userJobFileUploader();
+          
+          list($message,$status)=$addFiles->saveFiles($_FILES['fileToUpload'],$filePath);
+          
+
+          if($status=="success"){
+            $uiButtonCtrl->resumeButton($_POST["requestNo"]);
+            
+            header("location:userOpenJobs.php");
+            echo $alertView->showAlert("Your Job has successfully resumed.",$status);
+            
+
+          }else{
+            echo $alertView->showAlert($message,$status);
+          }
+
+          
+
+          
+        } 
+         
+  
+
+  
+  ?>
+
   <link rel="stylesheet" href="css/newJobs.css">
     <?php 
-    require_once 'controller/userJob.ctrl.php';
-    $loginId=$_SESSION['loginID'];
+    
     $uictrll=new uiTableControl();
     $result=$uictrll-> requestHistory($loginId);
     if ($uictrll->hasJobsSubmitted($result)) {
         ?>
 
-      <p id="demo"></p>
-      <div class="row">
-      <div class="col-sm-8"> </div>
-        <div class="col-sm-4"> 
-        <div class="search-bar"><input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.."></div>
-        </div>
-      </div>
-      <div>
-      <div class='table-responsive'>
- <!--Table-->
- <table id="tablePreview" class="table table-hover table-striped">
- <!--Table head-->
-   <thead>
-     <tr>
-       <th>Request #</th>
-       <th>Request ID</th>
-       <th>Status</th>
-       <th>Description</th>
-       <th></th>
-       
-     </tr>
-   </thead>
-   <tbody>
+     
+  <div>
+    <div class='table-responsive'>
+       <!--Table-->
+      <table id="tablePreview" class="table table-hover table-striped">
+        <!--Table head-->
+          <thead>
+            <tr>
+              <th>Request #</th>
+              <th>Request ID</th>
+              <th>Status</th>
+              <th>Description</th>
+              <th></th>
+              
+            </tr>
+          </thead>
+          <tbody>
      <?php
    
     
-    while ($row=$uictrll->fetchData($result)){
-        $rowdata= "<tr><td class='column1'>" .$row["requestNo"]
-                 ."</td><td class='column1'>".$row["details"]
-                 ."</td><td class='column1'>".$row["status"]
-                 ."</td><td class='column1'>".$row["description"]."</td>";
+        while ($row=$uictrll->fetchData($result)){
+            $rowdata= "<tr><td class='column1'>" .$row["requestNo"]
+                    ."</td><td class='column1'>".$row["details"]
+                    ."</td><td class='column1'>".$row["status"]
+                    ."</td><td class='column1'>".$row["description"]."</td>";
 
-        $finishButton='<td> <form method="post"> 
-        
-    
-        <input type="submit" name="Finish"
-                class="btn btn-secondary " value="Finish" id='.$row["requestNo"].'  /> </form></td></tr>';
-
-
-
-
-        $resumeButton='<td> 
-        
-        <button class="btn btn-warning" id='.$row["requestNo"].' onclick="myFunction('.$row["requestNo"].')">Resume</button></td></tr>';
+            $finishButton='<td> <form method="post"> 
+              <input type="hidden" name="requestNo" value='.$row["requestNo"].'>        
+              <input type="submit" name="Finish"  class="btn btn-secondary " value="Finish"  /> </form></td></tr>';
+            
+            $resumeButton='<td> <button class="btn btn-warning" id='.$row["requestNo"].' onclick="popupFunction('.$row["requestNo"].')">Resume</button></td></tr>';
              
         
         switch ($row["status"]) {
@@ -84,48 +117,36 @@
 
 
     <?php
-    }
-    else   echo "No Jobs Submitted Yet";
-    
+    }else{require_once 'alert.view.php';
+    $alertView=new alert();
+      
+      echo $alertView->showAlert('No Jobs Submitted Yet','info');}
     ?>
 
 
-    <?php
-        $uiButtonCtrl= new uiButtonControl();
-
-        if(array_key_exists('Finish', $_POST)) { 
-          
-          
-            $ans=$uiButtonCtrl->finishButton($_POST["requestNo"]); 
-           
-        } 
-        else if(array_key_exists('Confirm', $_POST)) { 
-          echo $_POST["requestNo"];
-          $uiButtonCtrl->resumeButton($_POST["requestNo"]);  
-          
-        } 
-         
-    ?> 
-
+    
 
     
  
-    <?php include_once('inc/Footer.php'); ?>
+  <?php 
+  
+  include_once('inc/Footer.php'); ?>
     
-<div class="popup">
+  <!-- Popup Contetn -->
+  <div class="popup">
   <div class="popup-content">
   <img src="files/img/close.jpg" alt="" class="closebtn"> 
-        <form class="popup-form" method='post'>
+        <form class="popup-form" method='post' multiple="multiple" enctype="multipart/form-data">
             
           <div class="container-fluid">
               <div><label for="referenceNo">Refernce Number: </label> <p id="referenceNo"></p>
               <p>Upload required Attachments</p> </div>
               <div><label for="myfile">Select files:</label>
-              <input type="file" id="myfile" name="myfile" multiple>
+              <input type="file" id="fileToUpload[]" name="fileToUpload[]" multiple>
               </div>
               <br><br>
 
-              <!--  -->
+              <!-- -->
               <input type="hidden" name="requestNo" id="hidden" value=''>
               <input type='submit' name='Confirm' class='Confirm-btn btn btn-success' id="confirm" value='Confirm' /> 
 
@@ -135,8 +156,10 @@
   </div>
   
   </div>
+
+
   <script>
-    function myFunction(requestNo){
+    function popupFunction(requestNo){
     var number = requestNo;
     document.querySelector(".popup").style.display="flex";
     document.getElementById("referenceNo").innerHTML=number;
