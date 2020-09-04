@@ -37,7 +37,7 @@ class recordAccessModel extends connection
 
                             $recordName=$recordNameArray['recordName'];
                             
-                            $fileName= "Avaliable File:<a href=   '$dir/$loginId-$recordName'  target='_blank' > $dir/$loginId-$recordName</a><br>        ";
+                            $fileName= "Avaliable File:<a href=   '$dir/$loginId-$recordName'  target='_blank' > $loginId-$recordName</a><br>        ";
                             echo$fileName;
                         }
                        
