@@ -1,10 +1,10 @@
 <?php
 include_once 'model/recordAccess.model.php';
 class recordViewer{
-    public function viewRecords($userId)
+    public function viewRecords($userId,$category)
     {
         $recordAccessModel=new recordAccessModel();
-        return $recordAccessModel->getRecordHistory($userId);
+        return $recordAccessModel->openFiles($userId,$category);
     }
 }
 

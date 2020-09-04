@@ -24,14 +24,14 @@
                     
                         <h1>File Management</h1>
                         <div class= "btns">
-                        <button class="btn btn-1" onclick="location.href='#';" style="cursor: pointer;">Search</button>
+                        <button class="btn btn-1" onclick="location.href='recordAccess.admin.php';" style="cursor: pointer;">Search</button>
                         <button class="btn btn-1" onclick="location.href='fileUpload.admin.php';" style="cursor: pointer;">Uploads</button>
                         </div>
                 </div>
             </div>
         </div>
 <?php  }else{
-    require_once 'alert.view.php';
+    require_once 'inc/alert.view.php';
     $alertView=new alert();
     echo $alertView->showAlert("You are not permitted to Access","error");
 }

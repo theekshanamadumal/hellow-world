@@ -30,7 +30,7 @@
              $status="info";
         }
         
-        require_once 'alert.view.php';
+        require_once 'inc/alert.view.php';
         $alertView=new alert();
         echo $alertView->showAlert($message,$status);
     
@@ -39,11 +39,14 @@
 
 
 <div class="container">
+<div class='row'>
+<div class="col-sm-3"></div>
+<div class="col-sm-6" >
     
     
 
-        <form action="fileupload.admin.php" method="post"  enctype="multipart/form-data">
-            <div class="form-group">
+        <form action="fileupload.admin.php" method="post"  enctype="multipart/form-data" style="border: none;">
+            <div class="form-group" >
                 <!--label for="category">Record Category</label-->
                 <select class="form-control" name="category">
                     <option >Record Category</option>
@@ -83,7 +86,10 @@
 
         </form> 
 
-    </div>
+</div>
+<div class="col-sm-3"></div>
+</div>
+</div>
 <?php include_once('inc/Footer.php'); ?>
 </body>
 </html>

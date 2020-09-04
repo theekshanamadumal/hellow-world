@@ -19,7 +19,7 @@
 <body>
  <?php include_once("inc/Header.php"); 
  
- require_once 'alert.view.php';
+ require_once 'inc/alert.view.php';
  $alertView=new alert(); 
  ?>
  <link rel="stylesheet" href="css/jobService.css">

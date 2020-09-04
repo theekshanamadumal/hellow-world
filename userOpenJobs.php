@@ -13,7 +13,7 @@
           require_once 'controller/userJob.ctrl.php';
           $loginId=$_SESSION['loginID'];
           include_once"controller/fileupload.ctrl.php";
-          require_once 'alert.view.php';
+          require_once 'inc/alert.view.php';
           $alertView=new alert();
   
         $uiButtonCtrl= new uiButtonControl();

@@ -19,7 +19,6 @@ if (is_dir($dir)){
     while (($file = readdir($dh)) !== false){
 
       echo "     filename:<a href=   '$dir$file'   > $dir$file</a><br>        ";
-
       
     }
     */

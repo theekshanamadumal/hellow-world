@@ -25,7 +25,7 @@
         $occupation=$_POST['occupation'];
 
         require_once 'controller/newAcc.ctrl.php';
-        require_once 'alert.view.php';
+        require_once 'inc/alert.view.php';
         $newAcCtrll=new newAccCtrl();
         $alertView=new alert();
         list($message,$status)=$newAcCtrll->createAccount($ID,$pw1,$pw2,$first_name,$second_name,$address,$telephone,$email,$school,$occupation);
@@ -34,12 +34,13 @@
 ?>
 <div class="row">
 
-<div class = "col"></div>
+<div class = "col-sm-3"></div>
+<div class = "col-sm-6">
 <div class="col-md-auto "> 
 <div  class="form-container">
 
-    <form action = "newAccount.php" method="POST">
-        
+    <form action = "newAccount.php" method="POST" style="border: none;">
+    <div class="container" class="textInput">
  <input name="ID" type="text" placeholder="National ID Number" >
  <input name="first_name" type="text"  placeholder="First Name">
   <input name="second_name" type="text"  placeholder="Last Name">
@@ -57,11 +58,12 @@
   <input name="password1" type="password"  placeholder="Enter Password">
   <input name="password2" type="password"  placeholder="Confirm Password"> 
   <input name="submit"  class="loginbtn" type="submit" value="Submit">
+  </div>
 </form>
 </div>
     </div>
-    <div class = "col"></div>
-
+    </div>
+    <div class = "col-sm-3"></div>
 </div>
 
 

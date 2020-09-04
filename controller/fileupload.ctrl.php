@@ -11,7 +11,7 @@ class fileuploader{
 		list($message,$status)=$this->saveFile($file,$target_file);
 
 		if ($status=="success") {
-			$tableUpdate=$this->updateRecordTable($category,$description,$NIC);
+			$tableUpdate=$this->updateRecordTable($category,$description.'.'.$extension,$NIC);
 				if (!$tableUpdate) {
 					$message =  "The file table uploade error ";
 					$status="error";
