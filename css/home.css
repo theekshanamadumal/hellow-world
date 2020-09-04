@@ -1,7 +1,7 @@
 /* Home Page */
 .row {
   display: flex;
-  flex-wrap: wrap-reverse;
+  flex-wrap: wrap;
 }
 .left {
   margin: 20px;
