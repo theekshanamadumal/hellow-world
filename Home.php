@@ -14,9 +14,9 @@
     <div class="row">
         <div class="col-sm-8">
             <div class="left">
-                    <div class="container p-3 my-3 bg-trance text-white" onclick="location.href='servicesHome.php';" style="cursor: pointer;"> Apply for services</div>
-                    <div class="container p-3 my-3 bg-trance text-white" onclick="location.href='applicationDownload.php';" style="cursor: pointer;">Download Application Forms</div>
-                    <div class="container p-3 my-3 bg-trance text-white" onclick="location.href='recordsAccess.user.php';" style="cursor: pointer;">View past records</div>
+                    <div class="container  bg-trance text-dark" onclick="location.href='servicesHome.php';" style="cursor: pointer;"> Apply for services</div>
+                    <div class="container bg-trance text-dark" onclick="location.href='applicationDownload.php';" style="cursor: pointer;">Download Application Forms</div>
+                    <div class="container  bg-trance text-dark" onclick="location.href='recordsAccess.user.php';" style="cursor: pointer;">View past records</div>
             </div>
         </div>           
         
