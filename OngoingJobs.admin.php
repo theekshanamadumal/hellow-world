@@ -39,9 +39,9 @@ if ($adctrll->hasJobsSubmitted($result)) {?>
        <th>Request Type</th>
        <th>User ID</th>
        <th>Description</th>
-       <th>Add Description</th>
-       <th>Add Description</th>
+       <th> </th>
        <th></th>
+       
        
      </tr>
    </thead>
@@ -79,7 +79,10 @@ while ($row=$adctrll->fetchData($result)){
     </div>
     <?php
     }
-    else   echo "No Jobs Submitted Yet";
+    else   {require_once 'inc/alert.view.php';
+      $alertView=new alert();
+        
+        echo $alertView->showAlert('No Ongoing Jobs available','info');}
     
     ?>
 

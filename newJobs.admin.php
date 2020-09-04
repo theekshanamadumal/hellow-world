@@ -79,7 +79,10 @@ while ($row=$adctrll->fetchData($result)){
     </div>
     <?php
     }
-    else   echo "No Jobs Submitted Yet";
+    else {require_once 'inc/alert.view.php';
+      $alertView=new alert();
+        
+        echo $alertView->showAlert('No New Jobs Submitted Yet','info');}
     
     ?>
 
