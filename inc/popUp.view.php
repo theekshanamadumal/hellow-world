@@ -16,6 +16,9 @@
   </div>
 
 
+
+
+
 <!-- Script function to enable popup container-->
 <script>
     function popupFunction(){  
@@ -25,4 +28,5 @@
     document.querySelector(".popup").style.display="none";
     })
     <?php echo $function ?>
+
   </script>

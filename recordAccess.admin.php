@@ -50,14 +50,16 @@
 
 
 <?php
-    if(isset($_SESSION['loginID'])) {
+//echo $_SESSION['adminID'];
+if(isset($_SESSION['adminID'])) {
+        
     
     if (isset($_POST['category'])){
 
         $message='action failed';
         $status='warning';
         
-        $userId=$_SESSION['loginID'];
+        //$userId=$_SESSION['loginID'];
         $category=$_POST['category'];
         include_once('controller/recordAccess.ctrl.php');
         $recordViewer=new recordViewer();
@@ -68,24 +70,28 @@
         $message='select the record category';
         $status='info';
     }
-    require_once 'inc/alert.view.php';
-    $alertView=new alert();
-    echo $alertView->showAlert($message,$status);
+}
+else{
+    $message='log in to the account<br><a href="adminLogin.php">Login Here</a>  ';
+    $status='warning';   
+}
 
-    }
-    else{
-        $function='popupFunction();';    
-    }
+require_once 'inc/alert.view.php';
+$alertView=new alert();
+echo $alertView->showAlert($message,$status);
+
 ?>
-
-       
 </div>
 <div class="col-sm-3"></div>
 </div>
 </div>
-<?php 
+     <a href="adminLogin.php">Login Here</a>  
+
+<?php
+
 include_once('inc/Footer.php');
-include_once('inc/popUp.view.php');
+
+
 ?>
 </body>
 </html>

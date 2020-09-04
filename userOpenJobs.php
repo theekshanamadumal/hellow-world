@@ -26,7 +26,7 @@
           $filePath='files/jobFiles/'.$_POST["requestNo"];
           
           include_once"controller/fileupload.ctrl.php";
-          require_once 'alert.view.php';
+          require_once 'inc/alert.view.php';
           $alertView=new alert();
 
           $addFiles= new userJobFileUploader();

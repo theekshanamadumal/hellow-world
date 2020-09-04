@@ -45,7 +45,7 @@
     <?php
     }
     else{
-      require_once 'alert.view.php';
+      require_once 'inc/alert.view.php';
       $alertView=new alert();
       echo $alertView->showAlert('No Jobs Submitted Yet','info');
     }  

@@ -13,7 +13,7 @@ if   (isset($_POST['submit'])){
     
 
     require_once 'controller/userLogin.ctrl.php';
-    require_once 'alert.view.php';
+    require_once 'inc/alert.view.php';
     $loginctrll=new loginCtrl();
     $alertView=new alert();
     list($massege, $status)=$loginctrll->log($table,$PswrdColumn,$username,$givenPassword,$destination,"user");
@@ -24,9 +24,10 @@ if   (isset($_POST['submit'])){
 
 ?>
 
-<div class="row">
+<div class="row" style="padding-top: 5%;">
 
-    <div class = "col"></div>
+    <div class = "col-sm-4"></div>
+    <div class = "col-sm-4">
     <div class="col-md-auto ">    
     <div class="formcontainer  ">
         <form class="userLogin" action = 'userLogin.php' method="POST">
@@ -47,7 +48,8 @@ if   (isset($_POST['submit'])){
         </form>	
     </div>
     </div>
-    <div class = "col"></div>
+    </div>
+    <div class = "col-sm-4"></div>
 </div>
 
 <?php include_once('inc/Footer.php'); ?> 

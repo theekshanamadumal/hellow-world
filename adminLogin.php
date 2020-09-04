@@ -13,7 +13,7 @@ if   (isset($_POST['submit'])){
     
 
     require_once 'controller/userLogin.ctrl.php';
-    require_once 'alert.view.php';
+    require_once 'inc/alert.view.php';
     $loginctrll=new loginCtrl();
     $alertView=new alert();
     list($massege,$status)=$loginctrll->log($table,$PswrdColumn,$username,$givenPassword,$destination,"admin");
@@ -23,13 +23,14 @@ if   (isset($_POST['submit'])){
 ?>
 
 
-<div class="row">
+<div class="row" style="padding-top: 5%;">
 
-    <div class = "col"></div>
-    <div class="col-md-auto ">    
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4"> 
+    <div class="col-md-auto "> 
     <div class="formcontainer  ">
         <form action = 'adminLogin.php' method="POST" enctype="multipart/form-data">
-        <div class="container">
+        <div class="container" class="textInput">
             <label for="uname"><b>Admin ID</b> </label>
             <input name="user_name" type="text" placeholder="Enter Username">
 
@@ -37,12 +38,17 @@ if   (isset($_POST['submit'])){
             <input name="password" type="password" placeholder="Enter Password">
 
             <input name="submit"  class="loginbtn" type="submit" value="Login">
-            </div>
+            <br>
+            <br> 
+        </div> 
         </form>	
     </div>
     </div>
-    <div class = "col"></div>
+    </div>
+    <div class = "col-sm-4"></div>
 </div>
+
+    
 
 <?php include_once('inc/Footer.php'); ?> 
    	
