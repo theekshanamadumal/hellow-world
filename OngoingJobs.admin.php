@@ -8,6 +8,7 @@
 <body>
 <?php include_once("inc/Header.php"); ?>
 <link rel="stylesheet" href="css/newJobs.css">
+<script src="inc/searchBar.js"></script>
 <?php
 
 
@@ -21,7 +22,7 @@ if ($adctrll->hasJobsSubmitted($result)) {?>
       <div class="row">
 <div class="col-sm-8"> </div>
 <div class="col-sm-4"> 
-        <div class="search-bar"><input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search..."></div>
+<div class="search-bar"><input type="text" id="searchBar"  placeholder="Search Keyword..."></div>
 </div>
 </div>
 
@@ -46,7 +47,7 @@ if ($adctrll->hasJobsSubmitted($result)) {?>
    </thead>
    <!--Table head-->
    <!--Table body-->
-   <tbody>
+   <tbody id="requestTable">
    <?php
 
 while ($row=$adctrll->fetchData($result)){
