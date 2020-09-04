@@ -47,7 +47,7 @@
     else{
       require_once 'inc/alert.view.php';
       $alertView=new alert();
-      echo $alertView->showAlert('No Jobs Submitted Yet','info');
+      echo $alertView->showAlert('No Finsihed Jobs Yet','info');
     }  
     
     ?>

@@ -23,12 +23,12 @@ if   (isset($_POST['submit'])){
     
 
 ?>
-
+<div class="container-fluid">
 <div class="row" style="padding-top: 5%;">
 
     <div class = "col-sm-4"></div>
     <div class = "col-sm-4">
-    <div class="col-md-auto ">    
+     
     <div class="formcontainer  ">
         <form class="userLogin" action = 'userLogin.php' method="POST">
         <div class="container" class="textInput">
@@ -47,9 +47,10 @@ if   (isset($_POST['submit'])){
             </div>
         </form>	
     </div>
-    </div>
+    
     </div>
     <div class = "col-sm-4"></div>
+</div>
 </div>
 
 <?php include_once('inc/Footer.php'); ?> 

@@ -116,10 +116,10 @@
 
 
     <?php
-    }else{require_once 'alert.view.php';
+    }else{require_once 'inc/alert.view.php';
     $alertView=new alert();
       
-      echo $alertView->showAlert('No Jobs Submitted Yet','info');}
+      echo $alertView->showAlert('No Jobs avialable','info');}
     ?>
 
 
