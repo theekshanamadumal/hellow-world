@@ -17,7 +17,7 @@
 <div class="col-sm-3"></div>
 <div class="col-sm-6">
 <br><br>
-<form method="POST" action="recordsAccess.user.php" style="border: none;">
+<form method="POST" action="recordAccess.admin.php" style="border: none;">
     
         <p class="form-group">
                 <label for="category">Record Category</label>
@@ -85,8 +85,6 @@ echo $alertView->showAlert($message,$status);
 <div class="col-sm-3"></div>
 </div>
 </div>
-     <a href="adminLogin.php">Login Here</a>  
-
 <?php
 
 include_once('inc/Footer.php');
