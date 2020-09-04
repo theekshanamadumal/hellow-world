@@ -9,11 +9,18 @@ class recordAccessModel extends connection
         return $result;
     }
 
+    /*public function validateID($loginId)
+    {
+        $query= "SELECT recordName FROM records WHERE userID='{$loginId}' and recordType='{$category}'";
+        $result=$this->runQuery($query);
+        return $result;
+    }*/
+
     public function openFiles($loginId,$category){
 
        
-            if ($category=='') {
-                $message= "select a category";
+            if ($category=='' or $loginId=='') {
+                $message= "select a category and NIC";
                 $status='info'; 
             } 
             else {

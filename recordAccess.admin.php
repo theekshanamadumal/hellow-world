@@ -20,6 +20,8 @@
 <form method="POST" action="recordAccess.admin.php" style="border: none;">
     
         <p class="form-group">
+                <label for="userID">NIC Number</label>
+                <input type="text" name="userID" class="form-control">
                 <label for="category">Record Category</label>
                 <select class="form-control" name="category">
                       
@@ -54,10 +56,11 @@
 if(isset($_SESSION['adminID'])) {
         
     
-    if (isset($_POST['category'])){
+    if (isset($_POST['category']) && isset($_POST['userID'])){
 
         $message='action failed';
         $status='warning';
+        $userId=$_POST['userID'];
         
         //$userId=$_SESSION['loginID'];
         $category=$_POST['category'];
@@ -67,7 +70,7 @@ if(isset($_SESSION['adminID'])) {
               
     }
     else{
-        $message='select the record category';
+        $message='select the record category and ID Number ';
         $status='info';
     }
 }
