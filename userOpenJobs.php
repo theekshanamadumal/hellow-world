@@ -10,35 +10,34 @@
 
   <?php include_once("inc/Header.php");
          
-         require_once 'controller/userJob.ctrl.php';
+          require_once 'controller/userJob.ctrl.php';
           $loginId=$_SESSION['loginID'];
-  
-        $uiButtonCtrl= new uiButtonControl();
-
-        if(array_key_exists('Finish', $_POST)) {       
-          
-            $uiButtonCtrl->finishButton($_POST["requestNo"]); 
-           
-        } 
-        else if(array_key_exists('Confirm', $_POST)) { 
-         
-
-          $filePath='files/jobFiles/'.$_POST["requestNo"];
-          
           include_once"controller/fileupload.ctrl.php";
           require_once 'alert.view.php';
           $alertView=new alert();
+  
+        $uiButtonCtrl= new uiButtonControl();
 
-          $addFiles= new userJobFileUploader();
+        // Action for Finishing a Job
+        if(array_key_exists('Finish', $_POST)) {       
           
-          list($message,$status)=$addFiles->saveFiles($_FILES['fileToUpload'],$filePath);
-          
+            $uiButtonCtrl->finishButton($_POST["requestNo"]); 
+            echo $alertView->showAlert("The Job has been completed successfully.","success");
+            header("Refresh: 3; location:userOpenJobs.php");
+
+        
+        // Action for Resuming a Job   
+        }else if(array_key_exists('Confirm', $_POST)) {          
+
+          $filePath='files/jobFiles/'.$_POST["requestNo"];         
+
+          $addFiles= new userJobFileUploader();        
+          list($message,$status)=$addFiles->saveFiles($_FILES['fileToUpload'],$filePath);          
 
           if($status=="success"){
-            $uiButtonCtrl->resumeButton($_POST["requestNo"]);
-            
-            header("location:userOpenJobs.php");
-            echo $alertView->showAlert("Your Job has successfully resumed.",$status);
+            $uiButtonCtrl->resumeButton($_POST["requestNo"]);          
+            echo $alertView->showAlert("Your Job has successfully resumed.",$status);            
+            header("Refresh: 3; location:userOpenJobs.php");         
             
 
           }else{
