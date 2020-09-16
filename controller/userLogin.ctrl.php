@@ -16,9 +16,10 @@ class loginCtrl{
             if ($result) {
                 $details=$cn->fetchAssoc($result);
                 $password=$details[$PswrdColumn];
+                $match=password_verify($givenPassword,$password);
                 $user_id =$details['ID'];
 
-                if ($password==$givenPassword and $user_id==$username) {
+                if ($match and $user_id==$username) {
                     session_destroy();
                     session_start();
 
