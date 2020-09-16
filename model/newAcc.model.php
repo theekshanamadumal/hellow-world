@@ -29,8 +29,9 @@ class newAaccModel extends connection {
     }
     public function insertPasswordDetails($ID,$pswrd)
     {
+        $hashpwd=password_hash($pswrd, PASSWORD_BCRYPT);
         $query_password="INSERT INTO passwords 
-        VALUES('{$ID}','{$pswrd}')";   
+        VALUES('{$ID}','{$hashpwd}')";   
         
         return $this->runQuery($query_password);
     }
