@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Sep 02, 2020 at 07:43 AM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.6
+-- Host: localhost:3306
+-- Generation Time: Sep 20, 2020 at 11:07 AM
+-- Server version: 5.7.24
+-- PHP Version: 7.2.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -29,7 +30,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `adminpwrds` (
   `ID` varchar(12) NOT NULL,
-  `password1` varchar(20) NOT NULL
+  `password1` varchar(255) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -37,7 +38,7 @@ CREATE TABLE `adminpwrds` (
 --
 
 INSERT INTO `adminpwrds` (`ID`, `password1`) VALUES
-('1234', '1234');
+('834567987V', '$2y$10$lIe3EgQg/j0tKJrQKY5F0O4N6zPAM4uNdThuFZ13OAsRn9yhE3rda');
 
 -- --------------------------------------------------------
 
@@ -47,7 +48,7 @@ INSERT INTO `adminpwrds` (`ID`, `password1`) VALUES
 
 CREATE TABLE `passwords` (
   `ID` varchar(12) NOT NULL,
-  `password` varchar(20) NOT NULL
+  `password` varchar(255) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -55,30 +56,16 @@ CREATE TABLE `passwords` (
 --
 
 INSERT INTO `passwords` (`ID`, `password`) VALUES
-('12121212', '111'),
-('123456789v', '111'),
-('4444444444V', '111'),
-('971650834V', '12'),
-('111111', '45'),
-('787878', '1221'),
-('456456', '121212'),
-('78787878', '122112'),
-('987654321', '111'),
-('5959', '59'),
-('2222222', '12'),
-('55555556', '56'),
-('656565655', '123'),
-('123123123V', '123456'),
-('12', '12'),
-('45', '45'),
-('56', '56'),
-('78', '78'),
-('789', '789'),
-('000000000V', ''),
-('000000000001', '1111'),
-('777777777V', '12'),
-('1234', '1234'),
-('121212124v', '12');
+('873456987V', '$2y$10$lIe3EgQg/j0tKJrQKY5F0O4N6zPAM4uNdThuFZ13OAsRn9yhE3rda'),
+('834321098V', '$2y$10$b3EsalwO4SkkWEQbwymWEOXi6lRMDEbMIQBUtUHcRPziYW9rmrpYC'),
+('955262622V', '$2y$10$NAGD8Ce89iRlkOhk2.rwE.sJ5f89z5p9QL.hJANz2aI.EgDNI4ojm'),
+('965437977V', '$2y$10$i5f37V2ZYOuFN4fbgQJJ7e3BoTebWkCiZLI1OYMCt2O1j1rsdMG6K'),
+('958709376V', '$2y$10$3nsoe.NxFya7SEpq/KoskO0FQBgtEZQdVUsXqjThMLrPIxXimxWta'),
+('19705262622', '$2y$10$yb6pObqadjvbhZ3b3aUxK.QxFf7IXps4YPDGejHXamqqaJTu2Kpda'),
+('756743111V', '$2y$10$oYU4pR6qdX6lZ1ukT7bACujs046Xcd.Ydz3xS5oJI6ELychXqd6hC'),
+('915346789V', '$2y$10$uZQEhfpy1xvy7f7aE8t3heKw1VdEIPTmOVkiehwPD8EHi8tUp9Xu2'),
+('805423987V', '$2y$10$aYcdEgPRyC1gaHA7YAegbO5r5eeOG7pZUa.EskNTusZG65HE7EOQS'),
+('19842376123', '$2y$10$4nz/H9kzi37bfQ1K6wiWVuNA7mGm9cJhe.rSHxs8qQYSOvIBb3nPK');
 
 -- --------------------------------------------------------
 
@@ -91,7 +78,7 @@ CREATE TABLE `records` (
   `recordType` int(11) NOT NULL,
   `recordName` varchar(50) NOT NULL,
   `userID` varchar(12) NOT NULL,
-  `date` date NOT NULL DEFAULT current_timestamp()
+  `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -99,8 +86,8 @@ CREATE TABLE `records` (
 --
 
 INSERT INTO `records` (`recordNo`, `recordType`, `recordName`, `userID`, `date`) VALUES
-(1, 3, '0', '555555555555', '2020-09-02'),
-(2, 5, '1', '555555555555', '2020-09-02');
+(1, 3, '0', '555555555555', '2020-09-02 00:00:00'),
+(2, 5, '1', '555555555555', '2020-09-02 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -112,7 +99,7 @@ CREATE TABLE `requestslist` (
   `requestNo` int(20) NOT NULL,
   `requestId` int(10) NOT NULL,
   `userId` varchar(12) NOT NULL,
-  `date` date NOT NULL DEFAULT current_timestamp(),
+  `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `status` varchar(10) NOT NULL DEFAULT 'new',
   `description` varchar(200) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
@@ -122,22 +109,29 @@ CREATE TABLE `requestslist` (
 --
 
 INSERT INTO `requestslist` (`requestNo`, `requestId`, `userId`, `date`, `status`, `description`) VALUES
-(1, 2, '971650834v', '2020-09-01', 'completed', 'collect document on 05/07/2020 morning'),
-(4, 5, '971650834v', '2020-09-01', 'new', 'new req'),
-(10, 3, '971650834v', '2020-09-01', 'pending', 'collect document on 05/07/2020 morning'),
-(12, 4, '3333333v', '2020-09-01', 'on going', 'sent to the head office'),
-(13, 6, '777777777V', '2020-09-01', 'completed', 'collect on 07/07/2020 morning'),
-(6, 4, '777777777V', '2020-09-01', 'new', 'new req'),
-(11, 2, '971650834v', '2020-09-01', 'ongoing', NULL),
-(16, 2, '971650834v', '2020-09-01', 'pending', NULL),
-(15, 3, '971650834v', '2020-09-01', 'ongoing', NULL),
-(17, 3, '971650834V', '2020-09-01', 'new', ''),
-(18, 3, '971650834V', '2020-09-01', 'new', ''),
-(19, 6, '971650834V', '2020-09-01', 'completed', ''),
-(20, 7, '971650834V', '2020-09-01', 'new', ''),
-(21, 1, '1234', '2020-09-01', 'pending', ''),
-(22, 1, '971650834V', '2020-09-01', 'new', ''),
-(23, 1, '971650834V', '2020-09-01', 'new', '');
+(1, 2, '971650834v', '2020-09-01 00:00:00', 'finished', 'collect document on 05/07/2020 morning'),
+(27, 5, '995262622V', '2020-09-01 00:00:00', 'pending', ''),
+(26, 1, '995262622V', '2020-09-01 00:00:00', 'pending', ''),
+(25, 1, '995262622V', '2020-09-01 00:00:00', 'finished', ''),
+(13, 6, '777777777V', '2020-09-01 00:00:00', 'completed', 'collect on 07/07/2020 morning'),
+(30, 13, '995262622V', '2020-09-01 00:00:00', 'pending', ''),
+(16, 2, '971650834v', '2020-09-01 00:00:00', 'finished', NULL),
+(15, 3, '971650834v', '2020-09-01 00:00:00', 'completed', 'collect documents'),
+(17, 3, '971650834V', '2020-09-01 00:00:00', 'ongoing', ''),
+(18, 3, '971650834V', '2020-09-01 00:00:00', 'new', ''),
+(19, 6, '971650834V', '2020-09-01 00:00:00', 'completed', ''),
+(24, 1, '995262622V', '2020-09-01 00:00:00', 'new', ''),
+(21, 1, '1234', '2020-09-01 00:00:00', 'completed', ''),
+(22, 1, '971650834V', '2020-09-01 00:00:00', 'new', ''),
+(23, 1, '971650834V', '2020-09-01 00:00:00', 'ongoing', ''),
+(38, 1, '873456987V', '2020-09-01 00:00:00', 'new', ''),
+(37, 1, '873456987V', '2020-09-01 00:00:00', 'new', ''),
+(36, 1, '873456987V', '2020-09-01 00:00:00', 'new', ''),
+(33, 1, '995262622V', '2020-09-01 00:00:00', 'new', ''),
+(34, 1, '995262622V', '2020-09-01 00:00:00', 'new', ''),
+(35, 1, '995262622V', '2020-09-01 00:00:00', 'new', ''),
+(39, 1, '873456987V', '2020-09-01 00:00:00', 'new', ''),
+(40, 1, '873456987V', '2020-09-01 00:00:00', 'new', '');
 
 -- --------------------------------------------------------
 
@@ -159,21 +153,27 @@ CREATE TABLE `requesttypes` (
 
 INSERT INTO `requesttypes` (`requestId`, `principal`, `teacher`, `staff`, `details`) VALUES
 (1, 1, 1, 1, 'type 1'),
-(5, 1, 1, 1, 'type 5'),
-(3, 1, 1, 1, 'type 3'),
 (2, 1, 1, 1, 'type 2'),
+(3, 1, 1, 1, 'type 3'),
 (4, 1, 1, 1, 'type 4'),
+(5, 1, 1, 0, 'type 5'),
 (6, 1, 1, 1, 'type 6'),
 (7, 1, 1, 1, 'type 7'),
 (8, 1, 1, 1, 'type 8'),
-(9, 1, 1, 1, 'type 9'),
-(10, 1, 1, 1, 'type 10'),
+(9, 1, 1, 0, 'type 9'),
+(10, 1, 1, 0, 'type 10'),
 (11, 1, 1, 1, 'type 11'),
-(12, 1, 1, 1, 'type 12'),
+(12, 1, 1, 0, 'type 12'),
 (13, 1, 1, 1, 'type 13'),
 (14, 1, 1, 1, 'type 14'),
-(15, 1, 1, 1, 'type 15'),
-(16, 1, 1, 1, 'type 16');
+(15, 0, 0, 1, 'type 15'),
+(16, 0, 0, 1, 'type 16'),
+(17, 0, 0, 1, 'type 17'),
+(18, 1, 1, 1, 'type 18'),
+(19, 1, 1, 0, 'type 19'),
+(20, 1, 1, 0, 'type 20'),
+(21, 1, 1, 0, 'type 21'),
+(22, 1, 0, 0, 'type 22');
 
 -- --------------------------------------------------------
 
@@ -197,34 +197,20 @@ CREATE TABLE `userdetails` (
 --
 
 INSERT INTO `userdetails` (`ID`, `first_name`, `second_name`, `address`, `telephone`, `email`, `school`, `occupation`) VALUES
-('971650834V', 'theekshana', 'madumal', 'nikaweratiya', '773137660', 'theekshana.18@cse.mrt.ac.lk', 'ST annes collage', 'teacher'),
-('4444444444V', 'saman', 'silva', 'padaviya', '773137660', 'theekshanamadumal@gmail.com', 'ST annes collage', 'teacher'),
-('123456789v', 'm', 'n', 'nm', '773137660', 'theekshana.1@cse.mrt.ac.lk', 'ST annes collage', 'teacher'),
-('111111', 'h', '', 'j', '456', 'ghfhf', 'ghfhgfh', 'Principal'),
-('444444', 'df', 'fd', 'dfdf', '565656', 'hgfhfh', 'sfddfsfd', 'teacher'),
-('787878', 'q', '', 'dddd', '78888', 'qwqwqw', 'wqwqwq', 'teacher'),
-('987654321', 'sadun', 'gimhan', 'unagolla', '', '', 'unagolla MMV', 'teacher'),
-('123123123V', 'kalum', 'pathiraja', 'padaviya', '0714545852', 'dfdsfdsfdsf@fgfgfdg.bnm', 'shri pura mmv', 'Staff'),
-('000000000V', 'kapila', 'undukapuchcha', '', '', '', '', 'teacher'),
-('000000000001', 'lakila', 'undukapuchcha', '', '', '', '', 'teacher'),
-('1234', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-('121212124v', 'sura', 'saradiyel', '', '', '', '', '');
+('873456987V', 'Aruni', 'Lakmali', '134/1,Nikaweratiya', '0711234987', 'aruni87@gmail.com', 'St Annes College', 'teacher'),
+('834321098V', 'Ayodya', 'Erandi', '101,Gammedapitiya,Nikaweratiya', '0712345623', 'ayodya1983@gmail.com', 'St Annes College', 'Staff'),
+('955262622V', 'Theekshana', 'Madhumal', 'Sisilasa,Bogahalanda,Moragollagama', '0711126345', 'madhumal95@gmail.com', 'Jayanthi Navodya Central college', 'Principal'),
+('965437977V', 'Malithi', 'Lalanika', '130/2,Boraluwewa,Nikaweratiya', '0712345623', 'malithi1998@gmail.com', 'Kubukwewa Vidyalaya', 'teacher'),
+('756743111V', 'Amara', 'Hewagama', '211/2,Pasgoda Road,Galgamuwa', '0717623001', 'amara9975@gmail.com', 'St Annes College', 'teacher'),
+('19705262622', 'Sunil', 'Fernando', 'udahagewaththa,Makehelwala,Ambanpola', '0714567432', 'sunilfernando@gmail.com', 'Jayanthi Navodya Central college', 'Staff'),
+('915346789V', 'Nimali', 'Gunawardhana', '23/1,Okewela,Padeniya', '0769713952', 'nimali987@gmail.com', 'Millagoda Maha Vidyalaya', 'Principal'),
+('958709376V', 'Chirath', 'Lankara', '99/1,Temple Junction,Anamaduwa', '0712288013', 'lachirath96@gmail.com', 'Vijayaba  national college', 'teacher'),
+('805423987V', 'Sarath', 'De silva', 'Muthusewana,Nihiluwa,Kobeigane', '0753487654', 'desarath@gmail.com', 'Millagoda Maha Vidyalaya', 'Staff'),
+('19842376123', 'Piyal', 'wasantha', 'Kusum kade,Pallaththara,Bingiriya', '0781296743', 'piyalwasantha84@gmail.com', 'St Annes College', 'teacher');
 
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `adminpwrds`
---
-ALTER TABLE `adminpwrds`
-  ADD PRIMARY KEY (`ID`);
-
---
--- Indexes for table `passwords`
---
-ALTER TABLE `passwords`
-  ADD PRIMARY KEY (`ID`);
 
 --
 -- Indexes for table `records`
@@ -238,12 +224,6 @@ ALTER TABLE `records`
 --
 ALTER TABLE `requestslist`
   ADD PRIMARY KEY (`requestNo`);
-
---
--- Indexes for table `requesttypes`
---
-ALTER TABLE `requesttypes`
-  ADD PRIMARY KEY (`requestId`);
 
 --
 -- Indexes for table `userdetails`
