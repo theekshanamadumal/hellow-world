@@ -7,8 +7,8 @@
   <div style="padding:7em;">
   <?php  
    
-    $message='login before search  records<br>
-        <a href="userLogin.php">login here</a>';
+    $message='Login before searching  records<br>
+        <a href="userLogin.php">Login here</a>';
     echo $message;
   ?>
   </div>

@@ -1,7 +1,9 @@
 <?php
 
 class changePassword{
-    
+    public $message;
+    public $status;
+
     public function changePswd($id,$email)
     {
         
@@ -11,6 +13,7 @@ class changePassword{
 
             $result=$this->getData($id,$changePswrdModel);
             $message="UNDER CONSTRUCTION";
+            $status="error";
             /*
             if($result){
                 $details=$changePswrdModel->fetchData($result);
@@ -26,9 +29,11 @@ class changePassword{
                 $message = "<hr>ACTION FAILED!";
             }*/
         }else{
-            $message = " user name and email can not be empty";
+            $message = " User name and email can not be empty";
+            $status="warning";
+
         }
-        return $message;
+        return array($message,$status);
         
     }
     public function checkDetails($id ,$email)

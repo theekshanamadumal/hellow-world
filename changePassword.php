@@ -4,7 +4,7 @@
     <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>change password</title>
+    <title>Change Password</title>
     </head>
     <body>
     <?php include_once("inc/Header.php"); ?>
@@ -15,18 +15,42 @@
        $id=$_POST['userId'];
        $email=$_POST['email'];
        require_once 'controller/changePassword.ctrl.php';
+       require_once 'inc/alert.view.php';
        $changePassword = new changePassword();
-       $message=$changePassword->changePswd($id,$email);
-       echo $message;
+       $alertView=new alert();
+       list($massege,$status)=$changePassword->changePswd($id,$email);
+       echo $alertView->showAlert($massege,$status);
     }
     ?>  
+    <div class="row" style="padding-top: 5%;">
 
-    <form action = "ChangePassword.php" method="POST">
-    user ID  :<input name="userId" type="text" id="">
-    Email    :<input name="email" type="email" id="">
-   <input name="submit" type="submit" id="" value="Submit">
-   </form>
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4"> 
+    <div class="col-md-auto "> 
+    <div class="formcontainer  ">
+        <form action = "ChangePassword.php" method="POST">
+        <div class="container" class="textInput">
+        <label for="uname"><b>User ID</b> </label>
+        <input name="userId" type="text" placeholder="Enter NIC number">
+        <label for="uname"><b>Email </b> </label>        
+        <input name="email" type="text" placeholder="Enter email address">
+        <input name="submit"  class="loginbtn" type="submit" id="" value="Submit">
+        <br>
+        <br>
+        </div> 
+       </form>
+    
+    </div>
+    </div> 
 
+        
+    </div>
+    <div class = "col-sm-4"></div>
+        
+    </div>
+        
+    </div>
+    
    <?php include_once('inc/Footer.php'); ?>
     </body>
 

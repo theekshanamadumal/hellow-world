@@ -10,7 +10,6 @@
 <body>
 <?php require_once'inc/Header.php';?>
 <link rel="stylesheet" href="css/jobService.css">
-<link rel="stylesheet" href="css/jobService.css">
 
 <div class='container'>
 <div class='row'>
