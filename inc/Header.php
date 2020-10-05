@@ -42,7 +42,7 @@ if (session_status() == PHP_SESSION_NONE) {
      </ul>
      <ul class="nav navbar-nav navbar-right" id="myNavbar">
           
-          <?php if(!(isset($_SESSION['loginID']) or isset($_SESSION['adminID']) )) {                                 ?>
+          <?php if(!(isset($_SESSION['loginID']) or isset($_SESSION['adminID']) )) {        ?>
             <li class="nav-item active">
               <a class="nav-link" href="newAccount.php">Register&nbsp;</a>
             </li>

@@ -6,13 +6,14 @@
     <title>Document</title>
 </head>
 <body>
-<?php include_once("inc/Header.php"); ?>
+<?php include_once("inc/Header.php"); 
+if(isset($_SESSION['loginID'])){ ?>
 <link rel="stylesheet" href="css/userUI.css">
 <div class="admin-content">
     <div class="admin-container">
         <div class="container p-3 my-3 bg-company text-dark">  
                 <h1>Job Services</h1>
-                <p>Description</p>
+                <p>All the job services previously requested, completed and currently ongoing jobs can be access from here.</p>
                 <div class= "btns">
                     <button class="btn btn-1" onclick="location.href='servicesHome.php';" style="cursor: pointer;">Request a Service</button>
                     <button class="btn btn-1" onclick="location.href='userOpenJobs.php';" style="cursor: pointer;">Open Services</button>
@@ -30,6 +31,13 @@
         </div>
     </div>
 </div>
+<?php  }else{
+    require_once 'inc/alert.view.php';
+    $alertView=new alert();
+    echo $alertView->showAlert("Need to be Logged in first","warning");
+}
+
+?>
 <?php include_once('inc/Footer.php'); ?> 
 </body>
 </html>

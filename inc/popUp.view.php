@@ -4,12 +4,9 @@
 <div class="popup">
   <div class="popup-content" >
   <img src="files/img/close.jpg" alt="" class="closebtn" > 
-  <div style="padding:7em;">
+  <div class="popup-container" >
   <?php  
-   
-    $message='Login before searching  records<br>
-        <a href="userLogin.php">Login here</a>';
-    echo $message;
+     echo $message;
   ?>
   </div>
   </div>
