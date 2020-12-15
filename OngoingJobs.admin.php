@@ -100,7 +100,7 @@ while ($row=$adctrll->fetchData($result)){
           
           $function='popupFunction2();';
             $adButtonCtrl->proceedButton2($_POST["requestNo"]); 
-            $adButtonCtrl->Changedescription($_POST["requestNo"],$_POST["Description2"]); 
+            $adButtonCtrl->Changedescription($_POST["requestNo"],$_POST["Description"]); 
         } 
        
          
