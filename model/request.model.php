@@ -31,7 +31,8 @@ class request extends connection {
     }
 
     public function putRequsts($var,$id,$newNo){
-        $query= "INSERT INTO requestslist VALUES('$newNo','$var','$id','new','')";
+        $datime = date("Y-m-d")." ".date("h:i:s");
+        $query= "INSERT INTO requestslist VALUES('$newNo','$var','$id','$datime','new','')";
         $result=$this->runQuery($query);
                 
         return $result;
