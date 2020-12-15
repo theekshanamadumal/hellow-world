@@ -11,8 +11,8 @@ class statusChangeModel extends connection
     }
 
     public function addDescription($requestNo,$description){
-        echo $description;
-        echo $requestNo;
+        //echo $description;
+        //echo $requestNo;
 
        $query= "UPDATE requestslist SET description= '{$description}'
        WHERE requestNo='{$requestNo}'  "  ;  
