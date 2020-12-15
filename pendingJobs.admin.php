@@ -98,6 +98,7 @@ while ($row=$adctrll->fetchData($result)){
           
           
             $adButtonCtrl->proceedButton1($_POST["requestNo"]); 
+            $adButtonCtrl->Changedescription($_POST["requestNo"],"");
         }
         elseif(array_key_exists('upload', $_POST)) { 
           
