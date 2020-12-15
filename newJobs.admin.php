@@ -39,6 +39,7 @@ if ($adctrll->hasJobsSubmitted($result)) {?>
        <th>Request ID</th>
        <th>Request Type</th>
        <th>User ID</th>
+       <th>Uploads</th>
        <th></th>
        
      </tr>
@@ -54,8 +55,16 @@ while ($row=$adctrll->fetchData($result)){
            ."</td><td class='column1'>type  ".$row["requestId"]
            ."</td><td class='column1'>".$row["userId"]."</td>";
 
- 
+           $num=$row["requestNo"];
+           $files=scandir("./files/jobFiles/".$num);
+           $filesum="<td>";
+           foreach($files as $file){
+            $filesum=$filesum.'<a href="./files/jobFiles/'.$num.'/'.$file.'">'.$file.'</a><br>';
+           }
+            $filesum=$filesum."</td>";
 
+
+            
   $proceedButton='<td> <form method="post"> 
   <input type="hidden" name="requestNo" value='.$row["requestNo"].'>
   <input type="submit" name="Proceed"
@@ -63,7 +72,7 @@ while ($row=$adctrll->fetchData($result)){
        
   
   
-      echo $rowdata,$proceedButton;
+      echo $rowdata,$filesum,$proceedButton;
   
 }
 
