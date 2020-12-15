@@ -39,6 +39,7 @@ if ($adctrll->hasJobsSubmitted($result)) {?>
        <th>Request Type</th>
        <th>User ID</th>
        <th>Description</th>
+       <th>Uploads</th>
        <th> </th>
        <th></th>
        
@@ -57,13 +58,21 @@ while ($row=$adctrll->fetchData($result)){
            ."</td><td class='column1'>".$row["userId"]
            ."</td><td class='column1'>".$row["description"]."</td>";
 
+           $num=$row["requestNo"];
+           $files=scandir("./files/jobFiles/".$num);
+           $filesum="<td>";
+           foreach($files as $file){
+            $filesum=$filesum.'<a href="./files/jobFiles/'.$num.'/'.$file.'">'.$file.'</a><br>';
+           }
+            $filesum=$filesum."</td>";
+
  
 
            $pendingButton='<td> <button class="btn btn-warning" id='.$row["requestNo"].' onclick="popupFunction2('.$row["requestNo"].')">Pause</button></td>';
        
           $completeButton='<td> <button class="btn btn-success" id='.$row["requestNo"].' onclick="popupFunction('.$row["requestNo"].')">Complete</button></td></tr>';
   
-      echo $rowdata,$pendingButton,$completeButton;
+      echo $rowdata,$filesum,$pendingButton,$completeButton;
   
 }
 
