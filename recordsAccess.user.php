@@ -23,19 +23,19 @@
                 <select class="form-control" name="category">
                       
                     <option></option>
-                    <option value="01">01</option>
-                    <option value="02">02</option>
-                    <option value="03">03</option>
-                    <option value="04">04</option>
-                    <option value="05">05</option>
-                    <option value="06">06</option>
-                    <option value="07">07</option>
-                    <option value="08">08</option>
-                    <option value="09">09</option>
-                    <option value="10">10</option>
-                    <option value="11">11</option>
-                    <option value="12">12</option>
-                    <option value="13">13</option>
+                    <option value="01">01-Birth Cetificate</option>
+                    <option value="02">02-Salary Reports</option>
+                    <option value="03">03-Marriage Certificate</option>
+                    <option value="04">04-Service Description</option>
+                    <option value="05">05-Vacation Details</option>
+                    <option value="06">06-diploma Certificate</option>
+                    <option value="07">07-Promotion Certificate</option>
+                    <option value="08">08-Income details</option>
+                    <option value="09">09-Childern's Birth Certificates</option>
+                    <option value="10">10-Exam Certificate</option>
+                    <option value="11">11-Transfer Letters</option>
+                    <option value="12">12-Training Letters</option>
+                    <option value="13">13-Loan Details</option>
                 </select>
         </p>
         <p><button name='upload'type="submit" class="btn btn-success">Search</button></p>
