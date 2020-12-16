@@ -28,7 +28,7 @@
                     <option value="03">03-Marriage Certificate</option>
                     <option value="04">04-Service Description</option>
                     <option value="05">05-Vacation Details</option>
-                    <option value="06">06-diploma Certificate</option>
+                    <option value="06">06-Diploma Certificate</option>
                     <option value="07">07-Promotion Certificate</option>
                     <option value="08">08-Income details</option>
                     <option value="09">09-Childern's Birth Certificates</option>
