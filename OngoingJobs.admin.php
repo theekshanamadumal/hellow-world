@@ -35,7 +35,6 @@ if ($adctrll->hasJobsSubmitted($result)) {?>
    <thead>
      <tr>
        <th>Request #</th>
-       <th>Request ID</th>
        <th>Request Type</th>
        <th>User ID</th>
        <th>Description</th>
@@ -53,7 +52,6 @@ if ($adctrll->hasJobsSubmitted($result)) {?>
 
 while ($row=$adctrll->fetchData($result)){
   $rowdata= "<tr><td class='column1'>" .$row["requestNo"]
-           ."</td><td class='column1'>".$row["requestId"]
            ."</td><td class='column1'>type  ".$row["requestId"]
            ."</td><td class='column1'>".$row["userId"]
            ."</td><td class='column1'>".$row["description"]."</td>";
@@ -62,8 +60,10 @@ while ($row=$adctrll->fetchData($result)){
            $files=scandir("./files/jobFiles/".$num);
            $filesum="<td>";
            foreach($files as $file){
+            if ($file!="." and $file!=".."){
             $filesum=$filesum.'<a href="./files/jobFiles/'.$num.'/'.$file.'">'.$file.'</a><br>';
            }
+          }
             $filesum=$filesum."</td>";
 
  
