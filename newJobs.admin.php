@@ -36,7 +36,6 @@ if ($adctrll->hasJobsSubmitted($result)) {?>
    <thead>
      <tr>
        <th>Request #</th>
-       <th>Request ID</th>
        <th>Request Type</th>
        <th>User ID</th>
        <th>Uploads</th>
@@ -51,7 +50,6 @@ if ($adctrll->hasJobsSubmitted($result)) {?>
 
 while ($row=$adctrll->fetchData($result)){
   $rowdata= "<tr><td class='column1'>" .$row["requestNo"]
-           ."</td><td class='column1'>".$row["requestId"]
            ."</td><td class='column1'>type  ".$row["requestId"]
            ."</td><td class='column1'>".$row["userId"]."</td>";
 
