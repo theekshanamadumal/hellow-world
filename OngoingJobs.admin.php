@@ -62,8 +62,10 @@ while ($row=$adctrll->fetchData($result)){
            $files=scandir("./files/jobFiles/".$num);
            $filesum="<td>";
            foreach($files as $file){
+            if ($file!="." and $file!=".."){
             $filesum=$filesum.'<a href="./files/jobFiles/'.$num.'/'.$file.'">'.$file.'</a><br>';
            }
+          }
             $filesum=$filesum."</td>";
 
  
