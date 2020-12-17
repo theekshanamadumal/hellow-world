@@ -50,7 +50,7 @@ if ($adctrll->hasJobsSubmitted($result)) {?>
 
 while ($row=$adctrll->fetchData($result)){
   $rowdata= "<tr><td class='column1'>" .$row["requestNo"]
-           ."</td><td class='column1'>type  ".$row["requestId"]
+           ."</td><td class='column1'> ".$row["details"]
            ."</td><td class='column1'>".$row["userId"]."</td>";
 
            $num=$row["requestNo"];
