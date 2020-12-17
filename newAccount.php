@@ -41,12 +41,12 @@
 
     <form action = "newAccount.php" method="POST" style="border: none;">
     <div class="container" class="textInput">
- <input name="ID" type="text" placeholder="National ID Number" >
- <input name="first_name" type="text"  placeholder="First Name">
-  <input name="second_name" type="text"  placeholder="Last Name">
-  <input name="address" type="text"  placeholder="Address">
-  <input name="telephone" type="text"  placeholder="Telephone">
-  <input name="email" type="text"  placeholder="Email Address">
+ <input name="ID" type="text" placeholder="National ID Number" value="<?php echo isset($_POST["ID"]) ? $_POST["ID"] : ''; ?>" >
+ <input name="first_name" type="text"  placeholder="First Name" value="<?php echo isset($_POST["first_name"]) ? $_POST["first_name"] : ''; ?>">
+  <input name="second_name" type="text"  placeholder="Last Name" value="<?php echo isset($_POST["second_name"]) ? $_POST["second_name"] : ''; ?>">
+  <input name="address" type="text"  placeholder="Address" value="<?php echo isset($_POST["address"]) ? $_POST["address"] : ''; ?>">
+  <input name="telephone" type="text"  placeholder="Telephone" value="<?php echo isset($_POST["telephone"]) ? $_POST["telephone"] : ''; ?>">
+  <input name="email" type="text"  placeholder="Email Address" value="<?php echo isset($_POST["email"]) ? $_POST["email"] : ''; ?>">
   <input name="school" type="text"  placeholder="School"><br><br>
   Occupation         
  <select name="occupation"  placeholder="Occupation"><br><br>
