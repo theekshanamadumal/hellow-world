@@ -71,7 +71,7 @@
           <thead>
             <tr>
               <th>Request #</th>
-              <th>Request ID</th>
+              <th>Request Type</th>
               <th>Status</th>
               <th>Description</th>
               <th></th>
