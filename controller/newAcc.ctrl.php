@@ -16,8 +16,9 @@ class newAccCtrl{
                             if(!$uppercase || !$lowercase || !$number  || strlen($pswrd1) < 8) {
                                 $massage='Password should be at least 8 characters in length and should include at least one upper case letter, one number, and one special character.';
                                 $status='error';
-                            }else{                    
-                                if(preg_match("/^[0-9]{10}$/", $telephone) && (strlen($telephone)==10)) {
+                            }else{    
+                                            
+                                if((preg_match("/^[0-9]{10}$/", $telephone) && (strlen($telephone)==10) && ($telephone[0]=="0")))  {
                                   
                                 
                             
