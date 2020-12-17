@@ -35,6 +35,7 @@ if ($adctrll->hasJobsSubmitted($result)) {?>
    <thead>
      <tr>
        <th>Request #</th>
+       
        <th>Request Type</th>
        <th>User ID</th>
        <th>Description</th>
@@ -67,10 +68,10 @@ while ($row=$adctrll->fetchData($result)){
             $filesum=$filesum."</td>";
 
  
-          
-          $pendingButton='<td> <button class="btn btn-warning " id='.$row["requestNo"].' onclick="popupFunction2('.$row["requestNo"].')">Pause</button></td>';
+
+           $pendingButton='<td> <button class="btn btn-warning" id='.$row["requestNo"].' onclick="popupFunction2('.$row["requestNo"].')">Pause</button></td>';
        
-          $completeButton='<td> <button class="btn btn-success " id='.$row["requestNo"].' onclick="popupFunction2('.$row["requestNo"].')">Complete</button></td></tr>';
+          $completeButton='<td> <button class="btn btn-success" id='.$row["requestNo"].' onclick="popupFunction('.$row["requestNo"].')">Complete</button></td></tr>';
   
       echo $rowdata,$filesum,$pendingButton,$completeButton;
   
@@ -124,7 +125,6 @@ while ($row=$adctrll->fetchData($result)){
  <div class="popup">
   <div class="popup-content">
   <img src="files/img/close.jpg" alt="" class="closebtn" > 
-        <?php echo $message?>
         <form class="popup-form" method='post' multiple="multiple" enctype="multipart/form-data">
           <div class="container-fluid">
               
@@ -143,15 +143,10 @@ while ($row=$adctrll->fetchData($result)){
 
 <!-- Script function to enable popup container-->
   <script>
-      
+      //document.write("hii");
     function popupFunction2(requestNo){
-    var number = requestNo;   
-      document.querySelector(".popup").style.display="flex";
-      
-    }else{
-     
-    }
-    
+    var number = requestNo;
+    document.querySelector(".popup").style.display="flex";
     //document.getElementById("referenceNo").innerHTML=number;
     
     //changing the value of hidden to the requestNO
@@ -163,9 +158,6 @@ while ($row=$adctrll->fetchData($result)){
 
     document.querySelector(".closebtn").addEventListener("click",function(){
     document.querySelector(".popup").style.display="none";
-
-    
-    
     })
 
     
