@@ -9,7 +9,7 @@
 
 <body>
 <?php include_once("inc/Header.php"); ?>
-<link rel="stylesheet" href="css/home.css">
+<link rel="stylesheet" href="css/home.css?">
     <div class="container">
     <div class="row">
         <div class="col-sm-8">
@@ -26,7 +26,7 @@
                     <img src="files/img/building.jpg" alt="">
                 </div>
                 <div>
-                        <h1 class="text-header">කලාප අධ්‍යාපන කාර්යාලය නිකවැරටිය<br></h1>
+                        <h4 class="sub-header">කලාප අධ්‍යාපන කාර්යාලය නිකවැරටිය<br></h4>
                         <p class="home-text-paragragh">නිකවැරටිය අධ්‍යාපන කලාප කාර්යාලයට සාදරයෙන් පිළිගනිමු.<br> <br>මෙම වෙබ් පිටුව මගින් කලාපයේ සියලුම පාසල්වල විදුහල්පතිවරුන්ට, ගුරුවරුන්ට සහ කාර්ය මණ්ඩලයේ සියලුම සාමාජිකයන්ට පහත සදහන් ඕනෑම සේවාවක් ලබා ගත හැක.<br><br> </p>
                 </div>
             </div>
