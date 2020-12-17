@@ -47,7 +47,7 @@
   <input name="address" type="text"  placeholder="Address" value="<?php echo isset($_POST["address"]) ? $_POST["address"] : ''; ?>">
   <input name="telephone" type="text"  placeholder="Telephone" value="<?php echo isset($_POST["telephone"]) ? $_POST["telephone"] : ''; ?>">
   <input name="email" type="text"  placeholder="Email Address" value="<?php echo isset($_POST["email"]) ? $_POST["email"] : ''; ?>">
-  <input name="school" type="text"  placeholder="School"><br><br>
+  <input name="school" type="text"  placeholder="School" value="<?php echo isset($_POST["school"]) ? $_POST["school"] : ''; ?>"><br><br>
   Occupation         
  <select name="occupation"  placeholder="Occupation"><br><br>
  <option value=""></option>
