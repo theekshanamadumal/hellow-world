@@ -17,7 +17,9 @@ class newAccCtrl{
                                 $massage='Password should be at least 8 characters in length and should include at least one upper case letter, one number, and one special character.';
                                 $status='error';
                             }else{                    
-                            
+                                if(preg_match("/^[0-9]{10}$/", $telephone) && (strlen($telephone)==10)) {
+                                  
+                                
                             
                             include_once 'model/newAcc.model.php';
                             $cn = new newAaccModel();
@@ -55,7 +57,10 @@ class newAccCtrl{
                                 $status="error";
                             }
 
-                        }}
+                        }else{
+                            $massage="Invalid Telephone number";
+                            $status="warning";
+                        }}}
                         elseif ($pswrd1==null){
                             $massage="password can not be empty.";
                             $status="warning";    
