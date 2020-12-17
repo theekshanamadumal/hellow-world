@@ -3,7 +3,8 @@ include_once 'model/fileupload.model.php';
 class fileuploader{
 
 	public function uploadFile($file,$category,$NIC,$description)
-    {
+    {if($NIC!=null){
+		if ((strlen($NIC)==10 and (($NIC[strlen($NIC)-1] =='v') or ($NIC[strlen($NIC)-1] =='V') )) or (strlen($NIC) ==12) ){
 		$extension=(pathinfo($file['name'],PATHINFO_EXTENSION));
 		$targetFileName=$NIC.'-'.$description.'.'.$extension;
 		$target_file = "files/records/".$category."/".$targetFileName;
@@ -13,10 +14,17 @@ class fileuploader{
 		if ($status=="success") {
 			$tableUpdate=$this->updateRecordTable($category,$description.'.'.$extension,$NIC);
 				if (!$tableUpdate) {
-					$message =  "The file table uploade error ";
+					$message =  "The file table upload error ";
 					$status="error";
 				}
-		}	
+		}
+		}else{
+			$message = "Invalid ID number.";
+			$status = "warning";
+		} 
+	}else {$message='National Identy value can not be empty.';
+		$status="warning";
+}      	
 		return array($message,$status);
 	}
 
