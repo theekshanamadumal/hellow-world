@@ -7,6 +7,17 @@ class newAccCtrl{
                 if (preg_match("/^[a-zA-Z-' ]*$/",$first_name.$second_name)) {   
                     if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
                         if ($pswrd1==$pswrd2 and $pswrd1!=null ) {
+
+                            $uppercase = preg_match('@[A-Z]@', $pswrd1);
+                            $lowercase = preg_match('@[a-z]@', $pswrd1);
+                            $number    = preg_match('@[0-9]@', $pswrd1);
+                            
+                            
+                            if(!$uppercase || !$lowercase || !$number  || strlen($pswrd1) < 8) {
+                                $massage='Password should be at least 8 characters in length and should include at least one upper case letter, one number, and one special character.';
+                                $status='error';
+                            }else{                    
+                            
                             
                             include_once 'model/newAcc.model.php';
                             $cn = new newAaccModel();
@@ -44,7 +55,7 @@ class newAccCtrl{
                                 $status="error";
                             }
 
-                        }
+                        }}
                         elseif ($pswrd1==null){
                             $massage="password can not be empty.";
                             $status="warning";    

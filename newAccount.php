@@ -7,7 +7,7 @@
 </head>
 <body>
 <?php include_once("inc/Header.php"); ?><br>
-<link rel="stylesheet" href="css/newAccount.css">
+<link rel="stylesheet" href="css/newAccount.css?">
 
 <?php
     if (isset($_POST['submit'])) {
@@ -55,8 +55,12 @@
  <option value="Principal">Principal</option>
  <option value="Staff">Staff</option>
 </select><br>
+<div class="info-hover">
+    <span class="info-text">Use a Password of at least 8 characters in length,at least one upper case letter and at least one number </span>
   <input name="password1" type="password"  placeholder="Enter Password">
+</div>
   <input name="password2" type="password"  placeholder="Confirm Password"> 
+  
   <input name="submit"  class="loginbtn" type="submit" value="Submit">
   </div>
 </form>
